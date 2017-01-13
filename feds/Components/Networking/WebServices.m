@@ -8,7 +8,6 @@
 
 
 #import "WebServices.h"
-#import <AFNetworking/AFNetworking.h>
 #import "Feds-Swift.h"
 
 
@@ -42,48 +41,7 @@
     return @"http://test.aramexnow.com";
 }
 
-+ (AFHTTPSessionManager *)manager {
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"text/html" forHTTPHeaderField:@"Content-Type"];
-    
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    
-    return manager;
-}
-
-+ (void)submitLoginData:(NSDictionary *)loginDict WithSuccess:(void (^)(id data))success
-                failure:(void (^)(NSError *error))failure{
-    
-    
-    NSString *urlComponent = @"/api/authenticate";
-    
-    NSString *urlString = [NSString stringWithFormat:@"%@%@",self.baseUrl,urlComponent];
-    
-    
-    [[self manager] POST:urlString parameters:loginDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"success! %@",responseObject);
-        
-        success(responseObject);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        //NSLog(@"error: %@", error);
-        
-        NSString* errResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",errResponse);
-        
-        
-        failure(error);
-        
-    }];
-    
-    
-}
-
+/*
 + (void)requestCall:(NSDictionary *)requestCallDict WithSuccess:(void (^)(id data))success
             failure:(void (^)(NSError *error))failure {
     NSString *urlComponent = @"/api/requestcall";
@@ -358,6 +316,6 @@
     
     
 }
-
+*/
 
 @end

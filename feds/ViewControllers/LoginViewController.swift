@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 import SwiftLoader
 
 import FBSDKCoreKit
@@ -61,52 +61,20 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         lblPassword.textColor = GlobalConstants.THEME_COLOR
         lblOr.textColor = GlobalConstants.THEME_COLOR
     }
-    @IBAction func loginTapped(_ sender:AnyObject) {
+    @IBAction func loginAction(_ sender: AnyObject) {
         view.endEditing(true)
-        if !isValid() {
-            return
-        }
-        let username = txtUsername.text
-        let password = txtPassword.text
-        let inputDict = NSDictionary(objects: [username!,password!], forKeys: ["username" as NSCopying,"password" as NSCopying])
-        SwiftLoader.show(title: "Loading", animated: true)
-        WebServices.submitLoginData(inputDict as! [AnyHashable: Any], withSuccess: {
-            response in
-            SwiftLoader.hide()
-            if let responseData = response as? Data {
-                let newStr = String(data: responseData, encoding: String.Encoding.utf8)
+        if !isValid() { return }
+        let username = txtUsername.text!
+        let password = txtPassword.text!
+        User.login(username, password).response(completionHandler : {[weak self] response in
+            if let error = response.error {
+                print("Error: \(error.localizedDescription)")
+                return
             }
-            do{
-                let jsonDict = try JSONSerialization.jsonObject(with: response! as! Data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
-                if let d = jsonDict["data"] as? NSDictionary {
-                    let accessToken = d["accessToken"]
-                    let defaults = UserDefaults.standard
-                    defaults.set(accessToken, forKey: GlobalConstants.KEY_ACCESS_TOKEN)
-                    let x = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC")
-                    self.present(x!, animated: true, completion: nil)
-                }else{ // This is error case
-                    let msg = jsonDict["message"] as! String
-                    self.view.showMessage(msg)
-                }
-            }catch{ }
-            }, failure: {
-                error in
-                if let data = (error as! NSError).userInfo[GlobalConstants.AFNETWORKING_ERROR_KEY] as? Data {
-                    do {
-                        if let jsonDict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
-                            if let dataDict = jsonDict["data"] as? NSDictionary {
-                                if let errorStr = dataDict["error"] as? String{
-                                    print(errorStr)
-                                    self.view.showMessage(errorStr)
-                                }
-                            }
-                        }
-                    }catch { }
-                }
-                SwiftLoader.hide()
+            let x = self?.storyboard?.instantiateViewController(withIdentifier: "HomeVC")
+            self?.present(x!, animated: true, completion: nil)
         })
     }
-    
     func isValid() -> Bool {
         let isValid = (txtUsername.text != "") && (txtPassword.text != "")
         return isValid

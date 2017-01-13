@@ -8,49 +8,36 @@
 
 import UIKit
 
-protocol AlertCustomViewDelegate {
-    func alertResponseSelected(_ status:Bool);
-}
-
 class AlertCustomView: UIView {
+    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var lblQuestion: UILabel!
     
- 
-    @IBOutlet var view: UIView!
-    @IBOutlet var lblQuestion: UILabel!
+    var onApprove   :(() -> Void)?
     
-    var delegate:AlertCustomViewDelegate!
-
     required init(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)!
-        
-        
     }
-    
-    fileprivate func commonInit() {
-        let nibView = Bundle.main.loadNibNamed("CustomAlert", owner: self, options: nil)?[0] as! UIView
-        nibView.frame = self.bounds;
-        self.addSubview(nibView)
-        view.backgroundColor = UIColor.white
-        
-        
-        lblQuestion.textColor = GlobalConstants.THEME_COLOR
-
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.commonInit()
     }
     
+    //MARK: - Private Methods
+    private func commonInit() {
+        let nibView = Bundle.main.loadNibNamed("CustomAlert", owner: self, options: nil)?[0] as! UIView
+        nibView.frame = self.bounds;
+        self.addSubview(nibView)
+        view.backgroundColor = UIColor.white
+        lblQuestion.textColor = GlobalConstants.THEME_COLOR
+    }
+    
     @IBAction func yesTapped(_ sender:AnyObject) {
-        delegate.alertResponseSelected(true)
+        removeFromSuperview()
+        onApprove?()
     }
     
     @IBAction func noTapped(_ sender:AnyObject) {
-        delegate.alertResponseSelected(false)
+        removeFromSuperview()
     }
-    
-    
 }
 

@@ -7,44 +7,36 @@
 //
 
 import Foundation
+import ObjectMapper
+import CoreLocation
 
 class DeliveryAddress {
     
+    var type:AddressType?
+    var address:String?
+    var floor:String?
+    var building:String?
+    var coordinate: CLLocationCoordinate2D!
     
-    var type = "to"
-    var address = "empty address"
-    var address_lat = "23.32"
-    var addres_ing = "34.43"
-    var addres_floor = ""
-    var address_building = ""
-    
-    init(d:NSDictionary){
-        
-        if let x = d["type"] as? String {
-            type = x
-        }
-        
-        if let x = d["address"] as? String {
-            address = x
-        }
-        
-        if let x = d["address_building"] as? String {
-            address_building = x
-        }
-        
-        if let x = d["address_floor"] as? String {
-            addres_floor = x
-        }
-        
-        if let x = d["address_ing"] as? String {
-            addres_ing = x
-        }
-        
-        if let x = d["address_lat"] as? String {
-            address_lat = x
-        }
-        
-        
-        
+    required init?(map: Map) {}
+}
+
+// MARK: - Enums
+extension DeliveryAddress {
+    enum AddressType: String {
+        case destination = "to"
+        case source = "from"
+    }
+}
+
+//MARK: - Mappable conformance
+extension DeliveryAddress: Mappable {
+    func mapping(map: Map) {
+        address                <- map["address"]
+        building               <- map["address_building"]
+        floor                  <- map["address_floor"]
+        coordinate.latitude    <- map["address_ing"]
+        coordinate.longitude   <- map["address_lat"]
+        type                   <- map["type"]
     }
 }

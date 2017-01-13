@@ -1,32 +1,25 @@
 PODS:
-  - AFNetworking (3.1.0):
-    - AFNetworking/NSURLSession (= 3.1.0)
-    - AFNetworking/Reachability (= 3.1.0)
-    - AFNetworking/Security (= 3.1.0)
-    - AFNetworking/Serialization (= 3.1.0)
-    - AFNetworking/UIKit (= 3.1.0)
-  - AFNetworking/NSURLSession (3.1.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.1.0)
-  - AFNetworking/Security (3.1.0)
-  - AFNetworking/Serialization (3.1.0)
-  - AFNetworking/UIKit (3.1.0):
-    - AFNetworking/NSURLSession
+  - Alamofire (4.2.0)
+  - AlamofireObjectMapper (4.0.1):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 2.0)
   - GoogleMaps (1.13.2)
+  - ObjectMapper (2.2.2)
   - SwiftLoader (0.2.5)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3.0)
+  - Alamofire (~> 4.0)
+  - AlamofireObjectMapper (~> 4.0)
   - GoogleMaps
   - SwiftLoader
 
 SPEC CHECKSUMS:
-  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AlamofireObjectMapper: 842d2eed43a4d0593ff0110d54ac86a170c4519c
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
+  ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   SwiftLoader: 12d7a6f661f5e9a2c9a72003e7dd6162f4ff0cc4
 
-PODFILE CHECKSUM: 555031fc6eacdea24bb1ce356ccbad1872fe0f78
+PODFILE CHECKSUM: 64dfb2241bb1366cd02cf2f3d0afa28f0e50d7f2
 
 COCOAPODS: 1.0.1

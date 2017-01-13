@@ -38,6 +38,9 @@
 		FA07EE441D78943700CD6FB0 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA07EE401D78943700CD6FB0 /* FBSDKCoreKit.framework */; };
 		FA07EE451D78943700CD6FB0 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA07EE411D78943700CD6FB0 /* FBSDKLoginKit.framework */; };
 		FA07EE461D78943700CD6FB0 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA07EE421D78943700CD6FB0 /* FBSDKShareKit.framework */; };
+		FA1102A91E287A4400E27B77 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1102A81E287A4400E27B77 /* API.swift */; };
+		FA1102AD1E28C72C00E27B77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1102AC1E28C72C00E27B77 /* User.swift */; };
+		FA1102AF1E290DB100E27B77 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1102AE1E290DB100E27B77 /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +82,9 @@
 		FA07EE401D78943700CD6FB0 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FA07EE411D78943700CD6FB0 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FA07EE421D78943700CD6FB0 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		FA1102A81E287A4400E27B77 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		FA1102AC1E28C72C00E27B77 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA1102AE1E290DB100E27B77 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = ../../MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,7 @@
 		FA07EDF51D788A9300CD6FB0 /* feds */ = {
 			isa = PBXGroup;
 			children = (
+				FA1102A71E287A3400E27B77 /* Networking */,
 				FA07EE3E1D78943700CD6FB0 /* Frameworks */,
 				FA07EE271D788FF400CD6FB0 /* ViewControllers */,
 				FA07EE211D788EFA00CD6FB0 /* Others */,
@@ -156,7 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				FA07EE091D788BEA00CD6FB0 /* DeliveryAddress.swift */,
+				FA1102AE1E290DB100E27B77 /* MenuItem.swift */,
 				FA07EE0A1D788BEA00CD6FB0 /* Order.swift */,
+				FA1102AC1E28C72C00E27B77 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +260,14 @@
 				FA07EE421D78943700CD6FB0 /* FBSDKShareKit.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA1102A71E287A3400E27B77 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FA1102A81E287A4400E27B77 /* API.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1102A91E287A4400E27B77 /* API.swift in Sources */,
 				FA07EE171D788D0900CD6FB0 /* AlertCustomView.swift in Sources */,
 				FA07EE0F1D788CE100CD6FB0 /* CourierTableViewCell.swift in Sources */,
 				FA07EE201D788E0300CD6FB0 /* WebServices.m in Sources */,
@@ -396,7 +414,9 @@
 				FA07EDF91D788A9300CD6FB0 /* ViewController.swift in Sources */,
 				FA07EE391D788FF400CD6FB0 /* RegisterViewController.swift in Sources */,
 				FA07EE3C1D788FF400CD6FB0 /* TempViewController.swift in Sources */,
+				FA1102AD1E28C72C00E27B77 /* User.swift in Sources */,
 				FA07EE0C1D788BEA00CD6FB0 /* Order.swift in Sources */,
+				FA1102AF1E290DB100E27B77 /* MenuItem.swift in Sources */,
 				FA07EDF71D788A9300CD6FB0 /* AppDelegate.swift in Sources */,
 				FA07EE251D788EFA00CD6FB0 /* Constants.swift in Sources */,
 			);

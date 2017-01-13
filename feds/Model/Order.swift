@@ -7,76 +7,43 @@
 //
 
 import Foundation
+import Alamofire
+import AlamofireObjectMapper
+import ObjectMapper
 
-class Order {
+final class Order {
+    var fromAddress     :DeliveryAddress!
+    var toAddress       :DeliveryAddress!
+    var mobile          :String?
+    var orderDateTime   :String?
+    var orderPk         :String?
+    var orderTokenId    :String?
+    var price           :String?
+    var status          :String?
+    var statusName      :String?
+    var userName        :String?
+    var service         :ServiceType = .invaid
     
-    var fromAddress:DeliveryAddress!
-    var toAddress:DeliveryAddress!
-    
-    var mobile = ""
-    var orderDateTime = ""
-    var orderPk = ""
-    var orderTokenId = ""
-    
-    var price = ""
-    var status = ""
-    var statusName = ""
-    var userName = ""
-    
-    var product_name = ""
-    
-    init(d:NSDictionary)  {
-        
-        if let x = d["mobile"] as? String {
-            mobile = x
-        }
-        
-        if let x = d["order_datetime"] as? String {
-            orderDateTime = x
-        }
-        
-        if let x = d["order_pk"] as? String {
-            orderPk = x
-        }
-        
-        if let x = d["order_tokenid"] as? String {
-            orderTokenId = x
-        }
-        
-        if let x = d["price"] as? NSNumber {
-            price = "\(x.intValue)"
-        }
-        
-        if let x = d["status"] as? String {
-            status = x
-        }
-        
-        if let x = d["status_name"] as? String {
-            statusName = x
-        }
-        
-        if let x = d["username"] as? String {
-            userName = x
-        }
-        
-        if let x = d["product_name"] as? String {
-            product_name = x
-        }
-        
-        if let addressArray = d["addresslist"] as? [NSDictionary] {
-            for dict in addressArray {
-                if let x = dict["type"] as? String {
-                    if x == "to" {
-                        fromAddress = DeliveryAddress(d: dict)
-                    }else{
-                        toAddress = DeliveryAddress(d: dict)
-                    }
-                }
-            }
-        }
-        
-        
-        
+    required init?(map: Map) {}
+}
+
+public enum ServiceType: String {
+    case bike   = "Bike"
+    case car    = "Car"
+    case van    = "Van"
+    case invaid = "Invalid"
+}
+
+extension Order: Mappable {
+    func mapping(map: Map) {
+        mobile          <- map["mobile"]
+        orderDateTime   <- map["order_datetime"]
+        orderPk         <- map["order_pk"]
+        orderTokenId    <- map["order_tokenid"]
+        price           <- map["price"]
+        status          <- map["status"]
+        statusName      <- map["status_name"]
+        userName        <- map["username"]
+        service         <- map["product_name"]
     }
-    
 }
