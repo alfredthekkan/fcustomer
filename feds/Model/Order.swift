@@ -47,3 +47,18 @@ extension Order: Mappable {
         service         <- map["product_name"]
     }
 }
+
+//MARK: - API Calls
+extension Order {
+    static func fetch(completionHandler : @escaping ([Order]?, Error?) -> Void) {
+        let URL = API.Url!.appendingPathComponent("getorders")
+        let params = ["accessToken":User.current.accessToken!]
+        SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).validate().responseArray(keyPath: "data") {(response : DataResponse<[Order]>) in
+            if let error = response.result.error {
+                completionHandler(nil, error)
+                return
+            }
+            completionHandler(response.result.value!, nil)
+        }
+    }
+}
