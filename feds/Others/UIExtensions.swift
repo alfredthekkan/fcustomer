@@ -88,6 +88,14 @@ extension UITextField {
         self.rightView = iv
     }
     
+    func showValidation(_ isValid:Bool){
+        if isValid {
+            postfixWithImageName("rightTickMark")
+        }else{
+            postfixWithImageName("wrongTickMark")
+        }
+    }
+    
     func postfixDropDown(){
         let f = CGRect(x: 0, y: 0, width: 30, height: 30)
         

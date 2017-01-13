@@ -411,6 +411,7 @@
                         <outlet property="txtName" destination="1Uq-1t-NoO" id="fuT-SI-Wpv"/>
                         <outlet property="txtPhoneNumber" destination="WpU-f9-dc7" id="lYT-wh-hEo"/>
                         <outlet property="txtpassword" destination="Dl6-jh-dLX" id="Pnv-Ro-KMv"/>
+                        <segue destination="VcI-Vr-PRf" kind="show" identifier="HomeSegue" id="2KQ-Vw-eId"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhu-SV-dzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -426,7 +427,7 @@
                         <viewControllerLayoutGuide type="bottom" id="44a-WZ-CD3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xB8-6P-emE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oct-Dx-kzF">
@@ -510,7 +511,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Zdf-hu-fNn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cIt-Tn-wnJ">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="636"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlB-N7-nKK">
@@ -977,7 +978,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gJ-A2-5B2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="392" y="1931"/>
+            <point key="canvasLocation" x="372" y="2182"/>
         </scene>
         <!--Tracking View Controller-->
         <scene sceneID="VyD-tV-FvF">
@@ -1043,7 +1044,7 @@
                         <viewControllerLayoutGuide type="bottom" id="EZD-HN-mbX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KKG-zV-4ei">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y4S-bq-IZw">
@@ -1120,7 +1121,7 @@
                         <viewControllerLayoutGuide type="bottom" id="KQs-7g-tU5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZmU-OQ-JVo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="PTK-Gq-Gpu">
