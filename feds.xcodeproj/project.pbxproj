@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1AD1DC62F909B72DD1515A0B /* Pods_feds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE749F66E3A36CCDC97376EA /* Pods_feds.framework */; };
 		FA07EDF71D788A9300CD6FB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EDF61D788A9300CD6FB0 /* AppDelegate.swift */; };
-		FA07EDF91D788A9300CD6FB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EDF81D788A9300CD6FB0 /* ViewController.swift */; };
 		FA07EDFC1D788A9300CD6FB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA07EDFA1D788A9300CD6FB0 /* Main.storyboard */; };
 		FA07EDFE1D788A9300CD6FB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA07EDFD1D788A9300CD6FB0 /* Assets.xcassets */; };
 		FA07EE011D788A9300CD6FB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA07EDFF1D788A9300CD6FB0 /* LaunchScreen.storyboard */; };
@@ -17,7 +16,6 @@
 		FA07EE0C1D788BEA00CD6FB0 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE0A1D788BEA00CD6FB0 /* Order.swift */; };
 		FA07EE0F1D788CE100CD6FB0 /* CourierTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE0E1D788CE100CD6FB0 /* CourierTableViewCell.swift */; };
 		FA07EE151D788D0800CD6FB0 /* CustomAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA07EE111D788D0800CD6FB0 /* CustomAlert.xib */; };
-		FA07EE161D788D0800CD6FB0 /* Dump.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA07EE121D788D0800CD6FB0 /* Dump.storyboard */; };
 		FA07EE171D788D0900CD6FB0 /* AlertCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE141D788D0800CD6FB0 /* AlertCustomView.swift */; };
 		FA07EE1F1D788E0300CD6FB0 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE1B1D788E0300CD6FB0 /* UIImage+ImageEffects.m */; };
 		FA07EE201D788E0300CD6FB0 /* WebServices.m in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE1E1D788E0300CD6FB0 /* WebServices.m */; };
@@ -26,13 +24,11 @@
 		FA07EE331D788FF400CD6FB0 /* CourierListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE281D788FF400CD6FB0 /* CourierListViewController.swift */; };
 		FA07EE341D788FF400CD6FB0 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE291D788FF400CD6FB0 /* EstimateViewController.swift */; };
 		FA07EE351D788FF400CD6FB0 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE2A1D788FF400CD6FB0 /* HomeCollectionViewController.swift */; };
-		FA07EE361D788FF400CD6FB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE2B1D788FF400CD6FB0 /* HomeViewController.swift */; };
 		FA07EE371D788FF400CD6FB0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE2C1D788FF400CD6FB0 /* LoginViewController.swift */; };
 		FA07EE381D788FF400CD6FB0 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE2D1D788FF400CD6FB0 /* PaymentViewController.swift */; };
 		FA07EE391D788FF400CD6FB0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE2E1D788FF400CD6FB0 /* RegisterViewController.swift */; };
-		FA07EE3A1D788FF400CD6FB0 /* SelectFromLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE2F1D788FF400CD6FB0 /* SelectFromLocationViewController.swift */; };
+		FA07EE3A1D788FF400CD6FB0 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE2F1D788FF400CD6FB0 /* LocationSelectViewController.swift */; };
 		FA07EE3B1D788FF400CD6FB0 /* SelectToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE301D788FF400CD6FB0 /* SelectToViewController.swift */; };
-		FA07EE3C1D788FF400CD6FB0 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE311D788FF400CD6FB0 /* TempViewController.swift */; };
 		FA07EE3D1D788FF400CD6FB0 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE321D788FF400CD6FB0 /* TrackingViewController.swift */; };
 		FA07EE431D78943700CD6FB0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA07EE3F1D78943700CD6FB0 /* Bolts.framework */; };
 		FA07EE441D78943700CD6FB0 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA07EE401D78943700CD6FB0 /* FBSDKCoreKit.framework */; };
@@ -49,7 +45,6 @@
 		DE749F66E3A36CCDC97376EA /* Pods_feds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_feds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA07EDF31D788A9300CD6FB0 /* feds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = feds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA07EDF61D788A9300CD6FB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA07EDF81D788A9300CD6FB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA07EDFB1D788A9300CD6FB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA07EDFD1D788A9300CD6FB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA07EE001D788A9300CD6FB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +53,6 @@
 		FA07EE0A1D788BEA00CD6FB0 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		FA07EE0E1D788CE100CD6FB0 /* CourierTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourierTableViewCell.swift; sourceTree = "<group>"; };
 		FA07EE111D788D0800CD6FB0 /* CustomAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlert.xib; sourceTree = "<group>"; };
-		FA07EE121D788D0800CD6FB0 /* Dump.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dump.storyboard; sourceTree = "<group>"; };
 		FA07EE141D788D0800CD6FB0 /* AlertCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertCustomView.swift; sourceTree = "<group>"; };
 		FA07EE1A1D788E0300CD6FB0 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		FA07EE1B1D788E0300CD6FB0 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
@@ -70,13 +64,11 @@
 		FA07EE281D788FF400CD6FB0 /* CourierListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourierListViewController.swift; sourceTree = "<group>"; };
 		FA07EE291D788FF400CD6FB0 /* EstimateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
 		FA07EE2A1D788FF400CD6FB0 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
-		FA07EE2B1D788FF400CD6FB0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FA07EE2C1D788FF400CD6FB0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA07EE2D1D788FF400CD6FB0 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		FA07EE2E1D788FF400CD6FB0 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		FA07EE2F1D788FF400CD6FB0 /* SelectFromLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFromLocationViewController.swift; sourceTree = "<group>"; };
+		FA07EE2F1D788FF400CD6FB0 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
 		FA07EE301D788FF400CD6FB0 /* SelectToViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectToViewController.swift; sourceTree = "<group>"; };
-		FA07EE311D788FF400CD6FB0 /* TempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		FA07EE321D788FF400CD6FB0 /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		FA07EE3F1D78943700CD6FB0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		FA07EE401D78943700CD6FB0 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -150,7 +142,6 @@
 				FA07EE0D1D788CE100CD6FB0 /* CustomCells */,
 				FA07EE081D788BEA00CD6FB0 /* Model */,
 				FA07EDF61D788A9300CD6FB0 /* AppDelegate.swift */,
-				FA07EDF81D788A9300CD6FB0 /* ViewController.swift */,
 				FA07EDFA1D788A9300CD6FB0 /* Main.storyboard */,
 				FA07EDFD1D788A9300CD6FB0 /* Assets.xcassets */,
 				FA07EDFF1D788A9300CD6FB0 /* LaunchScreen.storyboard */,
@@ -182,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				FA07EE111D788D0800CD6FB0 /* CustomAlert.xib */,
-				FA07EE121D788D0800CD6FB0 /* Dump.storyboard */,
 				FA07EE131D788D0800CD6FB0 /* ViewFiles */,
 			);
 			path = UI;
@@ -239,13 +229,11 @@
 				FA07EE281D788FF400CD6FB0 /* CourierListViewController.swift */,
 				FA07EE291D788FF400CD6FB0 /* EstimateViewController.swift */,
 				FA07EE2A1D788FF400CD6FB0 /* HomeCollectionViewController.swift */,
-				FA07EE2B1D788FF400CD6FB0 /* HomeViewController.swift */,
 				FA07EE2C1D788FF400CD6FB0 /* LoginViewController.swift */,
 				FA07EE2D1D788FF400CD6FB0 /* PaymentViewController.swift */,
 				FA07EE2E1D788FF400CD6FB0 /* RegisterViewController.swift */,
-				FA07EE2F1D788FF400CD6FB0 /* SelectFromLocationViewController.swift */,
+				FA07EE2F1D788FF400CD6FB0 /* LocationSelectViewController.swift */,
 				FA07EE301D788FF400CD6FB0 /* SelectToViewController.swift */,
-				FA07EE311D788FF400CD6FB0 /* TempViewController.swift */,
 				FA07EE321D788FF400CD6FB0 /* TrackingViewController.swift */,
 			);
 			path = ViewControllers;
@@ -335,7 +323,6 @@
 				FA07EE011D788A9300CD6FB0 /* LaunchScreen.storyboard in Resources */,
 				FA07EDFE1D788A9300CD6FB0 /* Assets.xcassets in Resources */,
 				FA07EDFC1D788A9300CD6FB0 /* Main.storyboard in Resources */,
-				FA07EE161D788D0800CD6FB0 /* Dump.storyboard in Resources */,
 				FA07EE151D788D0800CD6FB0 /* CustomAlert.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,21 +386,18 @@
 				FA07EE171D788D0900CD6FB0 /* AlertCustomView.swift in Sources */,
 				FA07EE0F1D788CE100CD6FB0 /* CourierTableViewCell.swift in Sources */,
 				FA07EE201D788E0300CD6FB0 /* WebServices.m in Sources */,
-				FA07EE3A1D788FF400CD6FB0 /* SelectFromLocationViewController.swift in Sources */,
+				FA07EE3A1D788FF400CD6FB0 /* LocationSelectViewController.swift in Sources */,
 				FA07EE381D788FF400CD6FB0 /* PaymentViewController.swift in Sources */,
 				FA07EE371D788FF400CD6FB0 /* LoginViewController.swift in Sources */,
 				FA07EE261D788EFA00CD6FB0 /* UIExtensions.swift in Sources */,
 				FA07EE1F1D788E0300CD6FB0 /* UIImage+ImageEffects.m in Sources */,
 				FA07EE3B1D788FF400CD6FB0 /* SelectToViewController.swift in Sources */,
 				FA07EE3D1D788FF400CD6FB0 /* TrackingViewController.swift in Sources */,
-				FA07EE361D788FF400CD6FB0 /* HomeViewController.swift in Sources */,
 				FA07EE351D788FF400CD6FB0 /* HomeCollectionViewController.swift in Sources */,
 				FA07EE0B1D788BEA00CD6FB0 /* DeliveryAddress.swift in Sources */,
 				FA07EE341D788FF400CD6FB0 /* EstimateViewController.swift in Sources */,
 				FA07EE331D788FF400CD6FB0 /* CourierListViewController.swift in Sources */,
-				FA07EDF91D788A9300CD6FB0 /* ViewController.swift in Sources */,
 				FA07EE391D788FF400CD6FB0 /* RegisterViewController.swift in Sources */,
-				FA07EE3C1D788FF400CD6FB0 /* TempViewController.swift in Sources */,
 				FA1102AD1E28C72C00E27B77 /* User.swift in Sources */,
 				FA07EE0C1D788BEA00CD6FB0 /* Order.swift in Sources */,
 				FA1102AF1E290DB100E27B77 /* MenuItem.swift in Sources */,

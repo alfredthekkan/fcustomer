@@ -21,6 +21,10 @@ pod 'Alamofire', '~> 4.0'
 
 pod 'AlamofireObjectMapper', '~> 4.0'
 
+pod "PromiseKit", "~> 4.0"
+pod "PromiseKit/CoreLocation"
+
+
 end
 
 post_install do |installer|

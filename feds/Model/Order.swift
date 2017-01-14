@@ -22,16 +22,16 @@ final class Order {
     var status          :String?
     var statusName      :String?
     var userName        :String?
-    var service         :ServiceType = .invaid
+    var service         :ServiceType = .invalid
     
     required init?(map: Map) {}
 }
 
 public enum ServiceType: String {
-    case bike   = "Bike"
-    case car    = "Car"
-    case van    = "Van"
-    case invaid = "Invalid"
+    case bike    = "Bike"
+    case car     = "Car"
+    case van     = "Van"
+    case invalid = "Invalid"
 }
 
 extension Order: Mappable {
@@ -60,5 +60,8 @@ extension Order {
             }
             completionHandler(response.result.value!, nil)
         }
+    }
+    func create(){
+        
     }
 }
