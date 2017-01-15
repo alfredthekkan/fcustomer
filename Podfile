@@ -8,8 +8,6 @@ target 'feds' do
   # Pods for feds
 
 use_frameworks!
-platform :ios, '10.0'
-pod 'SwiftLoader'
 
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.1'
