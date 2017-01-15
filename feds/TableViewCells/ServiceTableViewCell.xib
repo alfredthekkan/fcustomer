@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="identifier" rowHeight="98" id="bTx-mw-BET" customClass="ServiceTableViewCell" customModule="feds" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="468" height="98"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bTx-mw-BET" id="K1X-Hs-ruT">
+                <rect key="frame" x="0.0" y="0.0" width="468" height="97"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IA8-et-kb2">
+                        <rect key="frame" x="20" y="8" width="48" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="L6W-zd-fk7"/>
+                            <constraint firstAttribute="width" constant="48" id="cga-jb-Ie4"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CARS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZt-gu-nxu">
+                        <rect key="frame" x="22" y="60" width="44" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAXIMUM SIZE : 60 CM X 60 CM X 60 CM MAXIMUM WEIGHT: 200 KG" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5P-kb-Xhx">
+                        <rect key="frame" x="101" y="8" width="347" height="46.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="1" green="0.1336554844" blue="0.4594600338" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="pZt-gu-nxu" firstAttribute="top" secondItem="IA8-et-kb2" secondAttribute="bottom" constant="8" id="54W-ud-TDV"/>
+                    <constraint firstItem="IA8-et-kb2" firstAttribute="leading" secondItem="K1X-Hs-ruT" secondAttribute="leadingMargin" constant="12" id="5Gx-Rq-RE6"/>
+                    <constraint firstItem="pZt-gu-nxu" firstAttribute="centerX" secondItem="IA8-et-kb2" secondAttribute="centerX" id="9EV-jE-gIV"/>
+                    <constraint firstItem="x5P-kb-Xhx" firstAttribute="leading" secondItem="IA8-et-kb2" secondAttribute="trailing" constant="33" id="CTK-7T-Ysl"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="x5P-kb-Xhx" secondAttribute="trailing" constant="12" id="FeH-QW-uNh"/>
+                    <constraint firstItem="x5P-kb-Xhx" firstAttribute="top" secondItem="IA8-et-kb2" secondAttribute="top" id="N8l-Wd-KSq"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="x5P-kb-Xhx" secondAttribute="bottom" constant="35" id="srg-df-1lP"/>
+                    <constraint firstItem="IA8-et-kb2" firstAttribute="top" secondItem="K1X-Hs-ruT" secondAttribute="topMargin" id="xnt-jv-2Ng"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="1" green="0.1336554844" blue="0.4594600338" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="serviceImageView" destination="IA8-et-kb2" id="s3r-De-Apl"/>
+                <outlet property="specsLabel" destination="x5P-kb-Xhx" id="uB6-yQ-9kI"/>
+                <outlet property="typeLabel" destination="pZt-gu-nxu" id="oMr-PS-yV8"/>
+            </connections>
+            <point key="canvasLocation" x="-218" y="-241"/>
+        </tableViewCell>
+    </objects>
+</document>

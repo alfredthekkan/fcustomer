@@ -28,7 +28,6 @@
 		FA07EE381D788FF400CD6FB0 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE2D1D788FF400CD6FB0 /* PaymentViewController.swift */; };
 		FA07EE391D788FF400CD6FB0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE2E1D788FF400CD6FB0 /* RegisterViewController.swift */; };
 		FA07EE3A1D788FF400CD6FB0 /* LocationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE2F1D788FF400CD6FB0 /* LocationSelectViewController.swift */; };
-		FA07EE3B1D788FF400CD6FB0 /* SelectToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE301D788FF400CD6FB0 /* SelectToViewController.swift */; };
 		FA07EE3D1D788FF400CD6FB0 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EE321D788FF400CD6FB0 /* TrackingViewController.swift */; };
 		FA07EE431D78943700CD6FB0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA07EE3F1D78943700CD6FB0 /* Bolts.framework */; };
 		FA07EE441D78943700CD6FB0 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA07EE401D78943700CD6FB0 /* FBSDKCoreKit.framework */; };
@@ -37,6 +36,10 @@
 		FA1102A91E287A4400E27B77 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1102A81E287A4400E27B77 /* API.swift */; };
 		FA1102AD1E28C72C00E27B77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1102AC1E28C72C00E27B77 /* User.swift */; };
 		FA1102AF1E290DB100E27B77 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1102AE1E290DB100E27B77 /* MenuItem.swift */; };
+		FA55E3631E2C040C0004D3EA /* OrderSubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55E3621E2C040C0004D3EA /* OrderSubmitViewController.swift */; };
+		FA55E3661E2C05D90004D3EA /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA55E3651E2C05D90004D3EA /* ServiceTableViewCell.xib */; };
+		FA55E3681E2C08B90004D3EA /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55E3671E2C08B90004D3EA /* ServiceTableViewCell.swift */; };
+		FA55E36A1E2C0AE10004D3EA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55E3691E2C0AE10004D3EA /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +71,6 @@
 		FA07EE2D1D788FF400CD6FB0 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		FA07EE2E1D788FF400CD6FB0 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FA07EE2F1D788FF400CD6FB0 /* LocationSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectViewController.swift; sourceTree = "<group>"; };
-		FA07EE301D788FF400CD6FB0 /* SelectToViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectToViewController.swift; sourceTree = "<group>"; };
 		FA07EE321D788FF400CD6FB0 /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		FA07EE3F1D78943700CD6FB0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		FA07EE401D78943700CD6FB0 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -77,6 +79,10 @@
 		FA1102A81E287A4400E27B77 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FA1102AC1E28C72C00E27B77 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA1102AE1E290DB100E27B77 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = ../../MenuItem.swift; sourceTree = "<group>"; };
+		FA55E3621E2C040C0004D3EA /* OrderSubmitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSubmitViewController.swift; sourceTree = "<group>"; };
+		FA55E3651E2C05D90004D3EA /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
+		FA55E3671E2C08B90004D3EA /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		FA55E3691E2C0AE10004D3EA /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,7 @@
 		FA07EDF51D788A9300CD6FB0 /* feds */ = {
 			isa = PBXGroup;
 			children = (
+				FA55E3641E2C05C10004D3EA /* TableViewCells */,
 				FA1102A71E287A3400E27B77 /* Networking */,
 				FA07EE3E1D78943700CD6FB0 /* Frameworks */,
 				FA07EE271D788FF400CD6FB0 /* ViewControllers */,
@@ -157,6 +164,7 @@
 				FA1102AE1E290DB100E27B77 /* MenuItem.swift */,
 				FA07EE0A1D788BEA00CD6FB0 /* Order.swift */,
 				FA1102AC1E28C72C00E27B77 /* User.swift */,
+				FA55E3691E2C0AE10004D3EA /* Service.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,8 +241,8 @@
 				FA07EE2D1D788FF400CD6FB0 /* PaymentViewController.swift */,
 				FA07EE2E1D788FF400CD6FB0 /* RegisterViewController.swift */,
 				FA07EE2F1D788FF400CD6FB0 /* LocationSelectViewController.swift */,
-				FA07EE301D788FF400CD6FB0 /* SelectToViewController.swift */,
 				FA07EE321D788FF400CD6FB0 /* TrackingViewController.swift */,
+				FA55E3621E2C040C0004D3EA /* OrderSubmitViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -256,6 +264,15 @@
 				FA1102A81E287A4400E27B77 /* API.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		FA55E3641E2C05C10004D3EA /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				FA55E3651E2C05D90004D3EA /* ServiceTableViewCell.xib */,
+				FA55E3671E2C08B90004D3EA /* ServiceTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +341,7 @@
 				FA07EDFE1D788A9300CD6FB0 /* Assets.xcassets in Resources */,
 				FA07EDFC1D788A9300CD6FB0 /* Main.storyboard in Resources */,
 				FA07EE151D788D0800CD6FB0 /* CustomAlert.xib in Resources */,
+				FA55E3661E2C05D90004D3EA /* ServiceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1102A91E287A4400E27B77 /* API.swift in Sources */,
+				FA55E36A1E2C0AE10004D3EA /* Service.swift in Sources */,
 				FA07EE171D788D0900CD6FB0 /* AlertCustomView.swift in Sources */,
 				FA07EE0F1D788CE100CD6FB0 /* CourierTableViewCell.swift in Sources */,
 				FA07EE201D788E0300CD6FB0 /* WebServices.m in Sources */,
@@ -391,17 +410,18 @@
 				FA07EE371D788FF400CD6FB0 /* LoginViewController.swift in Sources */,
 				FA07EE261D788EFA00CD6FB0 /* UIExtensions.swift in Sources */,
 				FA07EE1F1D788E0300CD6FB0 /* UIImage+ImageEffects.m in Sources */,
-				FA07EE3B1D788FF400CD6FB0 /* SelectToViewController.swift in Sources */,
 				FA07EE3D1D788FF400CD6FB0 /* TrackingViewController.swift in Sources */,
 				FA07EE351D788FF400CD6FB0 /* HomeCollectionViewController.swift in Sources */,
 				FA07EE0B1D788BEA00CD6FB0 /* DeliveryAddress.swift in Sources */,
 				FA07EE341D788FF400CD6FB0 /* EstimateViewController.swift in Sources */,
 				FA07EE331D788FF400CD6FB0 /* CourierListViewController.swift in Sources */,
 				FA07EE391D788FF400CD6FB0 /* RegisterViewController.swift in Sources */,
+				FA55E3681E2C08B90004D3EA /* ServiceTableViewCell.swift in Sources */,
 				FA1102AD1E28C72C00E27B77 /* User.swift in Sources */,
 				FA07EE0C1D788BEA00CD6FB0 /* Order.swift in Sources */,
 				FA1102AF1E290DB100E27B77 /* MenuItem.swift in Sources */,
 				FA07EDF71D788A9300CD6FB0 /* AppDelegate.swift in Sources */,
+				FA55E3631E2C040C0004D3EA /* OrderSubmitViewController.swift in Sources */,
 				FA07EE251D788EFA00CD6FB0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

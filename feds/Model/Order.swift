@@ -12,6 +12,8 @@ import AlamofireObjectMapper
 import ObjectMapper
 
 final class Order {
+    
+    static var current  :Order?
     var fromAddress     :DeliveryAddress!
     var toAddress       :DeliveryAddress!
     var mobile          :String?
@@ -22,16 +24,10 @@ final class Order {
     var status          :String?
     var statusName      :String?
     var userName        :String?
-    var service         :ServiceType = .invalid
+    var service         :Service.ServiceType = .invalid
     
     required init?(map: Map) {}
-}
-
-public enum ServiceType: String {
-    case bike    = "Bike"
-    case car     = "Car"
-    case van     = "Van"
-    case invalid = "Invalid"
+    init() {}
 }
 
 extension Order: Mappable {

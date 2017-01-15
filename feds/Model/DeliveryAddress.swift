@@ -19,6 +19,7 @@ class DeliveryAddress {
     var coordinate: CLLocationCoordinate2D!
     
     required init?(map: Map) {}
+    init() { }
 }
 
 // MARK: - Enums

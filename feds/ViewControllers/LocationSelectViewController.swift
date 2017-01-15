@@ -14,8 +14,8 @@ import PromiseKit
 class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
 
     @IBOutlet weak var mapTypeSegmentButton: UISegmentedControl!
-    @IBOutlet weak var btnPickUpFromHere:UIButton!
-    @IBOutlet weak var markDeliveryButton:UIButton!
+    @IBOutlet weak var selectLocationButton:UIButton!
+    @IBOutlet weak var currentLocationButton:UIButton!
     
     var placePicker: GMSPlacePicker?
     var mapView:GMSMapView!
@@ -25,7 +25,7 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
         super.viewDidLoad()
         
         self.title = "PICKUP FROM"
-        let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(SelectFromLocationViewController.onLaunchClicked(_:)))
+        let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(LocationSelectViewController.onLaunchClicked(_:)))
         navigationItem.rightBarButtonItem = searchBtn
         _addMap()
         _customizeView()
@@ -75,14 +75,24 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
     }
     
     // Mark delivery
-    @IBAction func markDeliveryTapped(_ sender:UIButton) {
-        var p = btnPickUpFromHere.center
-        p.y = p.y + btnPickUpFromHere.frame.height/2
+    @IBAction func locationSelectTapped(_ sender:UIButton) {
+        var p = currentLocationButton.center
+        p.y = p.y + currentLocationButton.frame.height/2
         let mapviewPoint = view.convert(p, to: mapView)
         let coord = mapView.projection.coordinate(for: mapviewPoint)
-        let x = self.storyboard?.instantiateViewController(withIdentifier: "ToPointVC") as! LocationSelectViewController
-        x.source = coord
-        navigationController?.pushViewController(x, animated: true)
+        let address = DeliveryAddress()
+        address.coordinate = coord
+        
+        //If this is source
+        if Order.current == nil {
+            let order = Order()
+            order.fromAddress = address
+            Order.current = order
+            performSegue(withIdentifier: "destinationSegue", sender: nil)
+        }else{
+            Order.current?.toAddress = address
+            performSegue(withIdentifier: "estimateSegue", sender: nil)
+        }
     }
     
     //MARK: - Private Methods
@@ -109,16 +119,16 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:GlobalConstants.THEME_COLOR]
     }
 }
-extension SelectFromLocationViewController: GMSAutocompleteViewControllerDelegate {
-    // Handle the user's selection.
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        self.dismiss(animated: true, completion: nil)
-    }
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        self.dismiss(animated: true, completion: nil)
-    }
+
+extension LocationSelectViewController :GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
     }
+    public func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        
+    }
+    public func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        
+    }
 }
+
