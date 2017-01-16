@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import SwiftLoader
 
 class EstimateViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -523,10 +522,8 @@ class EstimateViewController: UIViewController,UIImagePickerControllerDelegate, 
         let userDict = NSDictionary(objects: [accessToken!,p_pk,userDeviceId,NSNumber(value: dist as Int),pr,"",paymentType,gatewaytoken], forKeys: ["accessToken" as NSCopying,"product_pk" as NSCopying,"user_device_id" as NSCopying,"distance" as NSCopying,"price" as NSCopying,"fileimage" as NSCopying,"paymenttype" as NSCopying,"gatewaytoken" as NSCopying])
         let addresses = NSArray(array: [sDict,dDict])
         let ipdict = NSDictionary(objects: [userDict,addresses], forKeys: ["userinfo" as NSCopying,"orderaddress" as NSCopying])
-        SwiftLoader.show(animated: true)
         WebServices.submitOrder(ipdict as! [AnyHashable: Any], withSuccess: {
                 response in
-            SwiftLoader.hide()
             if let rdata = response as? Data {
                 do{
                     let jsonDict = try JSONSerialization.jsonObject(with: response! as! Data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
@@ -540,7 +537,6 @@ class EstimateViewController: UIViewController,UIImagePickerControllerDelegate, 
                 }catch{ }
             }
             }, failure: { error in
-                SwiftLoader.hide()
                 self.navigationController?.popToRootViewController(animated: true) 
         })
     }

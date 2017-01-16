@@ -8,8 +8,6 @@ target 'feds' do
   # Pods for feds
 
 use_frameworks!
-platform :ios, '8.0'
-pod 'SwiftLoader'
 
 
 

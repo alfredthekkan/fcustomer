@@ -19,7 +19,6 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.1.3):
     - PromiseKit/CorePromise
-  - SwiftLoader (0.2.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -29,7 +28,6 @@ DEPENDENCIES:
   - PromiseKit (~> 4.0)
   - PromiseKit/CoreLocation
   - PromiseKit/UIKit (~> 4.0)
-  - SwiftLoader
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -38,8 +36,7 @@ SPEC CHECKSUMS:
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   PromiseKit: 56baec63efa89210c023260879435a5a6b3bff00
-  SwiftLoader: 12d7a6f661f5e9a2c9a72003e7dd6162f4ff0cc4
+
 
 PODFILE CHECKSUM: 1c03584583199c956516b80c6110a57cc61bb8b2
-
 COCOAPODS: 1.0.1
