@@ -41,3 +41,12 @@ extension DeliveryAddress: Mappable {
         type                   <- map["type"]
     }
 }
+
+//MARK: - API Calls
+func getDistance(fromAddress: DeliveryAddress, completionHandler: ((_ distance: Double, _ error: Error?) -> ())?) {
+
+}
+
+func getPlaceName(completionHandler: ((_ place: String, _ error: Error?) -> ())?) {
+    
+}

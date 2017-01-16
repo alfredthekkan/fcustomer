@@ -24,6 +24,9 @@ final class ServiceTableViewCell: Cell<Service>, CellType{
     }
     
     override func setup() {
+        let cellBackgroundView = UIView()
+        cellBackgroundView.backgroundColor = GlobalConstants.THEME_COLOR_GREY
+        selectedBackgroundView = cellBackgroundView
         backgroundColor = GlobalConstants.THEME_COLOR
     }
     override func update() {

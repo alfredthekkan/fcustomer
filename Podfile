@@ -11,6 +11,9 @@ use_frameworks!
 platform :ios, '8.0'
 pod 'SwiftLoader'
 
+
+
+
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.1'
 pod 'GoogleMaps'
@@ -27,7 +30,7 @@ use_frameworks!
 pod 'Eureka', '~> 2.0.0-beta.1'
 pod "PromiseKit", "~> 4.0"
 pod "PromiseKit/CoreLocation"
-
+pod "PromiseKit/UIKit", "~> 4.0"
 
 end
 

@@ -28,6 +28,7 @@ DEPENDENCIES:
   - GoogleMaps
   - PromiseKit (~> 4.0)
   - PromiseKit/CoreLocation
+  - PromiseKit/UIKit (~> 4.0)
   - SwiftLoader
 
 SPEC CHECKSUMS:
@@ -39,6 +40,6 @@ SPEC CHECKSUMS:
   PromiseKit: 56baec63efa89210c023260879435a5a6b3bff00
   SwiftLoader: 12d7a6f661f5e9a2c9a72003e7dd6162f4ff0cc4
 
-PODFILE CHECKSUM: 76c10556f5c76b19d4fef6ea0128a00e9edf4c23
+PODFILE CHECKSUM: 1c03584583199c956516b80c6110a57cc61bb8b2
 
 COCOAPODS: 1.0.1

@@ -57,7 +57,26 @@ extension Order {
             completionHandler(response.result.value!, nil)
         }
     }
-    func create(){
-        
+//    @discardableResult
+//    func submit() -> Alamofire.DataRequest{
+//        
+//    }
+    
+    
+    @discardableResult
+    func getPrice(_ distance: Int, service: Int, completionHandler: ((_ price: Double, _ error: Error?) -> ())?) -> Alamofire.DataRequest {
+        let URL = API.Url!.appendingPathComponent("getprice")
+        let accessToken = User.current.accessToken
+        let paramters = ["product_pk": service, "accessToken": accessToken ?? "", "distance": distance] as [String : Any]
+        return SessionManager.default.request(URL, method: .post, parameters: paramters, encoding : JSONEncoding.default).validate().responseJSON(completionHandler: {response in
+            if let error = response.result.error {
+                completionHandler?(0, error)
+                return
+            }
+            let value = response.result.value as! Parameters
+            let data  = value["data"] as! Parameters
+            let price = data["price"] as! NSNumber
+            completionHandler?(Double(price), nil)
+        })
     }
 }
