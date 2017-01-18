@@ -57,14 +57,14 @@ extension Order {
             completionHandler(response.result.value!, nil)
         }
     }
-//    @discardableResult
-//    func submit() -> Alamofire.DataRequest{
-//        
-//    }
+    @discardableResult
+    func submit(){
+        
+    }
     
     
     @discardableResult
-    func getPrice(_ distance: Int, service: Int, completionHandler: ((_ price: Double, _ error: Error?) -> ())?) -> Alamofire.DataRequest {
+    func getPrice(_ distance: Double, service: Int, completionHandler: ((_ price: Double, _ error: Error?) -> ())?) -> Alamofire.DataRequest {
         let URL = API.Url!.appendingPathComponent("getprice")
         let accessToken = User.current.accessToken
         let paramters = ["product_pk": service, "accessToken": accessToken ?? "", "distance": distance] as [String : Any]

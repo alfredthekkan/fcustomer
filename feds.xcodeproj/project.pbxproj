@@ -40,6 +40,7 @@
 		FA55E3661E2C05D90004D3EA /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA55E3651E2C05D90004D3EA /* ServiceTableViewCell.xib */; };
 		FA55E3681E2C08B90004D3EA /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55E3671E2C08B90004D3EA /* ServiceTableViewCell.swift */; };
 		FA55E36A1E2C0AE10004D3EA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55E3691E2C0AE10004D3EA /* Service.swift */; };
+		FA8FA9481E2FFA3F009F403E /* CLLocationCordinateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FA9471E2FFA3F009F403E /* CLLocationCordinateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		FA55E3651E2C05D90004D3EA /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
 		FA55E3671E2C08B90004D3EA /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		FA55E3691E2C0AE10004D3EA /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		FA8FA9471E2FFA3F009F403E /* CLLocationCordinateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCordinateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				FA07EE0A1D788BEA00CD6FB0 /* Order.swift */,
 				FA1102AC1E28C72C00E27B77 /* User.swift */,
 				FA55E3691E2C0AE10004D3EA /* Service.swift */,
+				FA8FA9471E2FFA3F009F403E /* CLLocationCordinateExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				FA07EE201D788E0300CD6FB0 /* WebServices.m in Sources */,
 				FA07EE3A1D788FF400CD6FB0 /* LocationSelectViewController.swift in Sources */,
 				FA07EE381D788FF400CD6FB0 /* PaymentViewController.swift in Sources */,
+				FA8FA9481E2FFA3F009F403E /* CLLocationCordinateExtension.swift in Sources */,
 				FA07EE371D788FF400CD6FB0 /* LoginViewController.swift in Sources */,
 				FA07EE261D788EFA00CD6FB0 /* UIExtensions.swift in Sources */,
 				FA07EE1F1D788E0300CD6FB0 /* UIImage+ImageEffects.m in Sources */,

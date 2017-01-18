@@ -9,7 +9,7 @@
 import UIKit
 import Eureka
 import ObjectMapper
-
+import CoreLocation
 
 class OrderSubmitViewController: FormViewController {
 
@@ -22,6 +22,18 @@ class OrderSubmitViewController: FormViewController {
     }
     private func setupForm() {
         form +++ Section()
+            <<< LabelRow() { row in
+                Order.current?.fromAddress.coordinate.getPlaceName{ place, error in
+                    if error != nil { return }
+                    row.value = place
+                }
+            }
+            <<< LabelRow() { row in
+                Order.current?.toAddress.getPlaceName{ place, error in
+                    if error != nil { return }
+                    row.value = place
+                }
+            }
             <<< ServiceRow() {
                 $0.value = Service.createService(.bike)
                 }.onCellSelection({[weak self] cell, row in
@@ -37,6 +49,11 @@ class OrderSubmitViewController: FormViewController {
                 }.onCellSelection({[weak self] cell, row in
                     self?.getPrice(3)
                 })
+            <<< ButtonRow() { row in
+                
+                }.onCellSelection{ cell, row in
+                Order.current?.submit()
+        }
     }
     @IBAction func addPicture(_ sender: Any) {
         self.imagePicker.allowsEditing = false
@@ -45,15 +62,14 @@ class OrderSubmitViewController: FormViewController {
         self.present(self.imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func confirmRequestTapped(_ sender: Any) {
-        
-    }
     private func getPrice(_ service: Int) {
-        let distance = 100
-        Order.current?.getPrice(distance, service: service, completionHandler: {[weak self]price, error in
-            if error != nil { return }
-            self?.priceLabel.text = "\(price)"
-        })
+        Order.current?.fromAddress.getDistance(fromAddress: (Order.current?.toAddress)!){distance, error in
+             let distanceMeter = distance?.rows?[0].elements?[0].distance?.value
+            Order.current?.getPrice(distanceMeter!, service: service){[weak self]price, error in
+                if error != nil { return }
+                self?.priceLabel.text = "\(price)"
+            }
+        }
     }
 }
 

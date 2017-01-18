@@ -730,14 +730,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJS-Kd-7BZ">
-                                <rect key="frame" x="0.0" y="20" width="600" height="587"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJS-Kd-7BZ">
+                                <rect key="frame" x="-4" y="64" width="383" height="610"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cBX-Re-uU0">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="490"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBX-Re-uU0">
+                                        <rect key="frame" x="0.0" y="0.0" width="383" height="490"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OJb-KV-I6A">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJb-KV-I6A">
+                                                <rect key="frame" x="0.0" y="0.0" width="383" height="88"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="source_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tiD-zp-0xh">
@@ -746,14 +746,14 @@
                                                     <constraint firstAttribute="width" constant="24" id="Q70-aI-oNZ"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="EMBASSIES AREA, STREET 11" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owY-vA-G8k">
-                                                <rect key="frame" x="50" y="8" width="542" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMBASSIES AREA, STREET 11" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owY-vA-G8k">
+                                                <rect key="frame" x="50" y="8" width="325" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D25-KV-qfw">
-                                                <rect key="frame" x="8" y="39" width="584" height="3"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D25-KV-qfw">
+                                                <rect key="frame" x="8" y="39" width="367" height="3"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="3" id="cSl-9B-zJB"/>
@@ -762,41 +762,41 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="destinatino_icon" translatesAutoresizingMaskIntoConstraints="NO" id="CCm-bf-kRg">
                                                 <rect key="frame" x="8" y="56" width="24" height="20"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="EMBASSIES AREA, STREET 11" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtd-cZ-AdU">
-                                                <rect key="frame" x="50" y="56" width="542" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMBASSIES AREA, STREET 11" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtd-cZ-AdU">
+                                                <rect key="frame" x="50" y="56" width="325" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="edZ-Ez-08V">
-                                                <rect key="frame" x="8" y="85" width="584" height="3"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edZ-Ez-08V">
+                                                <rect key="frame" x="8" y="85" width="367" height="3"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="3" id="92X-c6-3UC"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="996-4C-X5e">
-                                                <rect key="frame" x="270" y="214" width="60" height="71"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="996-4C-X5e">
+                                                <rect key="frame" x="161.5" y="214" width="60" height="71"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="71" id="ftI-RW-3pk"/>
                                                     <constraint firstAttribute="width" constant="60" id="pXh-62-QVo"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZx-qL-PbB">
-                                                <rect key="frame" x="5" y="232" width="260" height="36"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZx-qL-PbB">
+                                                <rect key="frame" x="5" y="232" width="151.5" height="36"/>
                                                 <color key="textColor" red="0.84313725490000002" green="0.086274509799999996" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCG-9u-mTb">
-                                                <rect key="frame" x="338" y="234" width="116" height="32"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCG-9u-mTb">
+                                                <rect key="frame" x="229.5" y="234" width="116" height="32"/>
                                                 <state key="normal" image="more_picture"/>
                                                 <connections>
                                                     <action selector="btnImagePickerTapped:" destination="O8M-n3-WlU" eventType="touchUpInside" id="nyn-Em-qC3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYc-ck-ffq">
-                                                <rect key="frame" x="0.0" y="303" width="300" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYc-ck-ffq">
+                                                <rect key="frame" x="0.0" y="303" width="191.5" height="40"/>
                                                 <color key="backgroundColor" red="0.48921286609999998" green="0.086274509799999996" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Kdu-w4-R5l"/>
@@ -806,39 +806,39 @@
                                                     <action selector="cashOnDeliveryTapped:" destination="O8M-n3-WlU" eventType="touchUpInside" id="oyF-y0-GUT"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upg-Jf-W7t">
-                                                <rect key="frame" x="300" y="303" width="300" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upg-Jf-W7t">
+                                                <rect key="frame" x="191.5" y="303" width="191.5" height="40"/>
                                                 <color key="backgroundColor" red="0.48921286609999998" green="0.086274509799999996" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="pay_by_card"/>
                                                 <connections>
                                                     <action selector="payByCard:" destination="O8M-n3-WlU" eventType="touchUpInside" id="kzC-Vz-scP"/>
                                                 </connections>
                                             </button>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tJc-vP-YYE" userLabel="line view">
-                                                <rect key="frame" x="299" y="308" width="2" height="30"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJc-vP-YYE" userLabel="line view">
+                                                <rect key="frame" x="190.5" y="308" width="2" height="30"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="2" id="TK6-hj-qwe"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srl-hU-2Ce">
-                                                <rect key="frame" x="208" y="108" width="180" height="86"/>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srl-hU-2Ce">
+                                                <rect key="frame" x="136.5" y="108" width="108.5" height="86"/>
                                                 <state key="normal" image="un_car_service" backgroundImage="vehicleBackground"/>
                                                 <state key="highlighted" image="se_car_service" backgroundImage="vehicleBackgroundSelected"/>
                                                 <connections>
                                                     <action selector="vehicleButtonTapped:" destination="O8M-n3-WlU" eventType="touchUpInside" id="LGs-TM-V0M"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eup-LR-mtA">
-                                                <rect key="frame" x="408" y="108" width="180" height="86"/>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eup-LR-mtA">
+                                                <rect key="frame" x="265" y="108" width="108" height="86"/>
                                                 <state key="normal" image="un_truck_service" backgroundImage="vehicleBackground"/>
                                                 <state key="highlighted" image="se_truck_service" backgroundImage="vehicleBackgroundSelected"/>
                                                 <connections>
                                                     <action selector="vehicleButtonTapped:" destination="O8M-n3-WlU" eventType="touchUpInside" id="XHY-T0-tgg"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abg-WC-O9d">
-                                                <rect key="frame" x="8" y="108" width="180" height="86"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abg-WC-O9d">
+                                                <rect key="frame" x="8" y="108" width="108.5" height="86"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="86" id="nPh-VX-eGV"/>
                                                 </constraints>
@@ -918,8 +918,8 @@
                                     <constraint firstItem="cBX-Re-uU0" firstAttribute="top" secondItem="iJS-Kd-7BZ" secondAttribute="top" id="pOp-de-ewG"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kes-Dx-Ldq">
-                                <rect key="frame" x="259" y="507" width="83" height="83"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kes-Dx-Ldq">
+                                <rect key="frame" x="146" y="574" width="83" height="83"/>
                                 <state key="normal" image="confirmrequest"/>
                                 <connections>
                                     <action selector="btnConfirmRequestTapped:" destination="O8M-n3-WlU" eventType="touchUpInside" id="C96-pk-ZbR"/>
@@ -1143,7 +1143,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w4O-iI-uUC" id="wX1-MA-2cs">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="68.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELIVERY - Abu Dhabi, Khalidiya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yf-XE-Uh4">

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import CoreLocation
 
 import FBSDKCoreKit
 import FBSDKLoginKit
