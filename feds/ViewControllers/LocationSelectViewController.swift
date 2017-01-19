@@ -91,7 +91,7 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
             performSegue(withIdentifier: "destinationSegue", sender: nil)
         }else{
             Order.current?.toAddress = address
-            performSegue(withIdentifier: "estimateSegue", sender: nil)
+            performSegue(withIdentifier: "submitSegue", sender: nil)
         }
     }
     

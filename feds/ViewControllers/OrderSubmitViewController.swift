@@ -21,17 +21,23 @@ class OrderSubmitViewController: FormViewController {
         setupForm()
     }
     private func setupForm() {
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.estimatedRowHeight = 50
         form +++ Section()
             <<< LabelRow() { row in
                 Order.current?.fromAddress.coordinate.getPlaceName{ place, error in
                     if error != nil { return }
                     row.value = place
+                    Order.current?.fromAddress.address = place
+                    row.updateCell()
                 }
             }
             <<< LabelRow() { row in
-                Order.current?.toAddress.getPlaceName{ place, error in
+                Order.current?.toAddress.coordinate.getPlaceName{ place, error in
                     if error != nil { return }
                     row.value = place
+                    Order.current?.toAddress.address = place
+                    row.updateCell()
                 }
             }
             <<< ServiceRow() {
@@ -49,11 +55,6 @@ class OrderSubmitViewController: FormViewController {
                 }.onCellSelection({[weak self] cell, row in
                     self?.getPrice(3)
                 })
-            <<< ButtonRow() { row in
-                
-                }.onCellSelection{ cell, row in
-                Order.current?.submit()
-        }
     }
     @IBAction func addPicture(_ sender: Any) {
         self.imagePicker.allowsEditing = false
@@ -62,6 +63,9 @@ class OrderSubmitViewController: FormViewController {
         self.present(self.imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func submit(_ sender: Any) {
+        Order.current?.submit()
+    }
     private func getPrice(_ service: Int) {
         Order.current?.fromAddress.getDistance(fromAddress: (Order.current?.toAddress)!){distance, error in
              let distanceMeter = distance?.rows?[0].elements?[0].distance?.value

@@ -7,3 +7,22 @@
 //
 
 import Foundation
+import ObjectMapper
+
+class Payment {
+    var token: String?
+    var type: PaymentType?
+    
+    required init(map:Map) {}
+    enum PaymentType:String {
+        case cashOnDelivery = "CashOnDelivery"
+        case creditCard = "CreditCard"
+    }
+}
+
+extension Payment: Mappable {
+    func mapping(map:Map) {
+        type <- map["paymenttype"]
+        token <- map["gatewaytoken"]
+    }
+}

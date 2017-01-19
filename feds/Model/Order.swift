@@ -25,6 +25,7 @@ final class Order {
     var statusName      :String?
     var userName        :String?
     var service         :Service.ServiceType = .invalid
+    var payment         :Payment?
     
     required init?(map: Map) {}
     init() {}
@@ -58,10 +59,24 @@ extension Order {
         }
     }
     @discardableResult
-    func submit(){
-        
+    func submit() -> Alamofire.DataRequest {
+        let URL = API.Url!.appendingPathComponent("requestorder")
+        // Parameters
+        let map = Map(mappingType: .toJSON, JSON: [:])
+        var addresses = [self.fromAddress, self.toAddress]
+        var deviceID = UIDevice.current.identifierForVendor
+        var paymentType = payment?.type?.rawValue
+        var token = payment?.token
+        addresses <- map["orderaddress"]
+        User.current.accessToken <- map["accessToken"]
+        deviceID <- map["user_device_id"]
+        paymentType <- map["paymenttype"]
+        token <- map["gatewaytoken"]
+        let parameters = map.JSON
+        return SessionManager.default.request(URL, method: .post, parameters: parameters, encoding : JSONEncoding.default).validate().responseJSON(completionHandler: {response in
+            if let _ = response.result.error { return }
+        })
     }
-    
     
     @discardableResult
     func getPrice(_ distance: Double, service: Int, completionHandler: ((_ price: Double, _ error: Error?) -> ())?) -> Alamofire.DataRequest {
