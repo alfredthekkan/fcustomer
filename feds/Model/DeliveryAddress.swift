@@ -13,14 +13,26 @@ import Alamofire
 
 class DeliveryAddress {
     
-    var type:AddressType?
+    var type:LocationType?
     var address:String?
-    var floor:String?
-    var building:String?
-    var coordinate: CLLocationCoordinate2D!
+    var floor = "Temp Floor"
+    var building = "Temp Building"
+    var coordinate: CLLocationCoordinate2D!{
+        get{
+            return CLLocationCoordinate2D(latitude: Double(_latitude)!, longitude: Double(_longitude)!)
+        }set{
+            _latitude = "\(newValue.latitude)"
+            _longitude = "\(newValue.longitude)"
+        }
+    }
+    
+    fileprivate var _latitude: String = ""
+    fileprivate var _longitude: String = ""
 
     required init?(map: Map) {}
-    init() { }
+    init(type: LocationType) {
+        self.type = type
+    }
     
     class Distance{
         class GRow {
@@ -42,22 +54,14 @@ class DeliveryAddress {
     }
 }
 
-// MARK: - Enums
-extension DeliveryAddress {
-    enum AddressType: String {
-        case destination = "to"
-        case source = "from"
-    }
-}
-
 //MARK: - Mappable conformance
 extension DeliveryAddress: Mappable {
     func mapping(map: Map) {
         address                <- map["address"]
         building               <- map["address_building"]
         floor                  <- map["address_floor"]
-        coordinate.latitude    <- map["address_ing"]
-        coordinate.longitude   <- map["address_lat"]
+        _longitude             <- map["address_ing"]
+        _latitude              <- map["address_lat"]
         type                   <- map["type"]
     }
 }

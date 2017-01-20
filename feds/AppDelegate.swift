@@ -22,11 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = UserDefaults.standard
         
         if defaults.string(forKey: GlobalConstants.KEY_ACCESS_TOKEN) != nil {
-            
             let st = UIStoryboard(name: "Main", bundle: nil)
             let hm = st.instantiateViewController(withIdentifier: "HomeVC")
             window?.rootViewController = hm
-            
         }
         
         

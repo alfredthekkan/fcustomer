@@ -61,6 +61,7 @@ class HomeCollectionViewController: UIViewController {
             self?.view.window?.rootViewController = loginVC
         })
     }
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {}
     
     //MARK: - Private Methods
     fileprivate func _showBlur() {

@@ -13,19 +13,45 @@ import ObjectMapper
 
 final class Order {
     
-    static var current  :Order?
-    var fromAddress     :DeliveryAddress!
-    var toAddress       :DeliveryAddress!
+    static var _current :Order?
+    static var current  :Order?{
+        get {
+            if _current == nil {
+                _current = Order()
+            }
+            return _current!
+        }
+        set{
+            _current = newValue
+        }
+    }
+    fileprivate var _addresses = [DeliveryAddress]()
+    var fromAddress     :DeliveryAddress?{
+        get{
+            return _addresses.first
+        }set{
+            _addresses[0] = newValue!
+        }
+    }
+    
+    var toAddress     :DeliveryAddress?{
+        get{
+            return _addresses.last
+        }set{
+            _addresses[1] = newValue!
+        }
+    }
     var mobile          :String?
     var orderDateTime   :String?
     var orderPk         :String?
     var orderTokenId    :String?
-    var price           :String?
+    var price           :Double?
     var status          :String?
     var statusName      :String?
     var userName        :String?
     var service         :Service.ServiceType = .invalid
     var payment         :Payment?
+    var distance        :Double!
     
     required init?(map: Map) {}
     init() {}
@@ -42,6 +68,8 @@ extension Order: Mappable {
         statusName      <- map["status_name"]
         userName        <- map["username"]
         service         <- map["product_name"]
+        distance        <- map["distance"]
+        _addresses      <- map["addresslist"]
     }
 }
 
@@ -61,18 +89,24 @@ extension Order {
     @discardableResult
     func submit() -> Alamofire.DataRequest {
         let URL = API.Url!.appendingPathComponent("requestorder")
-        // Parameters
+        
+        let deviceID = UIDevice.current.identifierForVendor?.uuidString
+        var orderInfo = Order.current?.toJSON()
+        var addresses = [self.fromAddress?.toJSON(), self.toAddress?.toJSON()]
+        
+        orderInfo?["user_device_id"] = deviceID
+        orderInfo?["accessToken"] = User.current.accessToken
+        orderInfo?["paymenttype"] = Order.current?.payment?.type?.rawValue
+        orderInfo?["gatewaytoken"] = ""
+        orderInfo?["product_pk"] = Order.current?.service.productId
+        
         let map = Map(mappingType: .toJSON, JSON: [:])
-        var addresses = [self.fromAddress, self.toAddress]
-        var deviceID = UIDevice.current.identifierForVendor
-        var paymentType = payment?.type?.rawValue
-        var token = payment?.token
         addresses <- map["orderaddress"]
-        User.current.accessToken <- map["accessToken"]
-        deviceID <- map["user_device_id"]
-        paymentType <- map["paymenttype"]
-        token <- map["gatewaytoken"]
+        orderInfo  <- map["userinfo"]
+
         let parameters = map.JSON
+        print(parameters)
+        
         return SessionManager.default.request(URL, method: .post, parameters: parameters, encoding : JSONEncoding.default).validate().responseJSON(completionHandler: {response in
             if let _ = response.result.error { return }
         })
@@ -93,5 +127,12 @@ extension Order {
             let price = data["price"] as! NSNumber
             completionHandler?(Double(price), nil)
         })
+    }
+}
+extension Dictionary {
+    static func += <K, V> ( left: inout [K:V], right: [K:V]) {
+        for (k, v) in right {
+            left.updateValue(v, forKey: k)
+        }
     }
 }

@@ -19,42 +19,56 @@ class OrderSubmitViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
+        getPlaceName()
+        
+        //TODO: - Get the right payment method
+        Order.current?.payment = Payment(type: .creditCard)
+    }
+    private func getPlaceName() {
+        Order.current?.fromAddress?.coordinate.getPlaceName{ [weak self] place, error in
+            if error != nil { return }
+            Order.current?.fromAddress?.address = place
+            self?.form.rowBy(tag: "source")?.baseValue = place
+        }
+        Order.current?.toAddress?.coordinate.getPlaceName{ [weak self] place, error in
+            if error != nil { return }
+            Order.current?.toAddress?.address = place
+            self?.form.rowBy(tag: "destination")?.baseValue = place
+        }
     }
     private func setupForm() {
         tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.estimatedRowHeight = 50
         form +++ Section()
-            <<< LabelRow() { row in
-                Order.current?.fromAddress.coordinate.getPlaceName{ place, error in
-                    if error != nil { return }
-                    row.value = place
-                    Order.current?.fromAddress.address = place
-                    row.updateCell()
-                }
+        <<< LocationTitleRow("source"){ row in
+                row.type = .source
+            }.onChange{[weak self] in
+                $0.updateCell()
+                let ip = self?.tableView?.indexPath(for: $0.cell)
+                self?.tableView?.reloadRows(at: [ip!], with: .none)
             }
-            <<< LabelRow() { row in
-                Order.current?.toAddress.coordinate.getPlaceName{ place, error in
-                    if error != nil { return }
-                    row.value = place
-                    Order.current?.toAddress.address = place
-                    row.updateCell()
-                }
+        <<< LocationTitleRow("destination"){ row in
+                row.type = .destination
+            }.onChange{[weak self] in
+                $0.updateCell()
+                let ip = self?.tableView?.indexPath(for: $0.cell)
+                self?.tableView?.reloadRows(at: [ip!], with: .none)
             }
-            <<< ServiceRow() {
+         <<< ServiceRow() {
                 $0.value = Service.createService(.bike)
                 }.onCellSelection({[weak self] cell, row in
                     self?.getPrice(1)
-                })
-            <<< ServiceRow() {
-                $0.value = Service.createService(.car)
+         })
+         <<< ServiceRow() {
+               $0.value = Service.createService(.car)
                 }.onCellSelection({[weak self] cell, row in
                     self?.getPrice(2)
                 })
-            <<< ServiceRow() {
+         <<< ServiceRow() {
                 $0.value = Service.createService(.van)
                 }.onCellSelection({[weak self] cell, row in
                     self?.getPrice(3)
-                })
+         })
     }
     @IBAction func addPicture(_ sender: Any) {
         self.imagePicker.allowsEditing = false
@@ -64,14 +78,22 @@ class OrderSubmitViewController: FormViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-        Order.current?.submit()
+        Order.current?.submit().response{[weak self] response in
+            if let _ = response.error { return }
+            if let identifier = self?.defaultStoryBoardIdentifier {
+                self?.performSegue(withIdentifier: identifier, sender: nil)
+            }
+        }
     }
     private func getPrice(_ service: Int) {
-        Order.current?.fromAddress.getDistance(fromAddress: (Order.current?.toAddress)!){distance, error in
-             let distanceMeter = distance?.rows?[0].elements?[0].distance?.value
-            Order.current?.getPrice(distanceMeter!, service: service){[weak self]price, error in
-                if error != nil { return }
-                self?.priceLabel.text = "\(price)"
+        Order.current?.fromAddress?.getDistance(fromAddress: (Order.current?.toAddress)!){distance, error in
+            if let distanceMeter = distance?.rows?[0].elements?[0].distance?.value {
+                Order.current?.distance = distanceMeter/1000
+                Order.current?.getPrice(distanceMeter/1000, service: service){[weak self]price, error in
+                    if error != nil { return }
+                    self?.priceLabel.text = "\(price) AED"
+                    Order.current?.price = price
+                }
             }
         }
     }
@@ -80,7 +102,7 @@ class OrderSubmitViewController: FormViewController {
 extension OrderSubmitViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        itemImageView.image = info[UIImagePickerControllerEditedImage] as! UIImage?
+        itemImageView.image = info[UIImagePickerControllerOriginalImage] as! UIImage?
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -88,3 +110,4 @@ extension OrderSubmitViewController: UIImagePickerControllerDelegate, UINavigati
         picker.dismiss(animated: true, completion: nil)
     }
 }
+

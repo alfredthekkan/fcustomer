@@ -14,9 +14,12 @@ class Payment {
     var type: PaymentType?
     
     required init(map:Map) {}
+    init(type: PaymentType) {
+        self.type = type
+    }
     enum PaymentType:String {
-        case cashOnDelivery = "CashOnDelivery"
-        case creditCard = "CreditCard"
+        case cashOnDelivery = "cash"
+        case creditCard = "credit"
     }
 }
 

@@ -187,3 +187,14 @@ extension UIImageView {
     }
     
 }
+
+extension UIViewController {
+    var defaultStoryBoardIdentifier: String? {
+        if let templates = value(forKey: "storyboardSegueTemplates") as! [AnyObject]? {
+            if let id = templates.first?.value(forKey: "identifier") as? String {
+                return id
+            }
+        }
+    return nil
+    }
+}

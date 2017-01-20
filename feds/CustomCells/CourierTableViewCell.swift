@@ -25,8 +25,13 @@ class CourierTableViewCell: UITableViewCell {
     
     // Populate date into cell
     func setupOrder(_ order: Order) {
-        lblPrice.text = "PRICE - \(order.price) AED"
-        lblLocationName.text = "DELIVERY - \(order.fromAddress.address) - \(order.toAddress.address)"
+        if let price = order.price {
+            lblPrice.text = "PRICE - \(price) AED"
+        }
+        if let source = order.fromAddress?.address, let destination = order.toAddress?.address {
+            lblLocationName.text = "DELIVERY - \(source) - \(destination)"
+        }
+        
         let im = accessoryView as! UIImageView
         switch order.service {
         case .bike:

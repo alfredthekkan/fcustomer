@@ -44,14 +44,10 @@ class TrackingViewController: UIViewController {
         //self.view.addSubview(mapView)
         //self.view = mapView
         self.view.insertSubview(mapView, at: 0)
-        
         self.mapView = mapView
-        
-        let position = CLLocationCoordinate2DMake(24, 54)
-        
         let p = CLLocationCoordinate2DMake(24.4, 54.4)
         
-        self.showMarkerAtPosition(position,isDriver:false)
+        self.showMarkerAtPosition((order.toAddress?.coordinate)!,isDriver:false)
         self.showMarkerAtPosition(p, isDriver: true)
         
         imgDriverImageView.image = UIImage(named: "driver_placeholder")

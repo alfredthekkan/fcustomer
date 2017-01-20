@@ -16,6 +16,7 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
     @IBOutlet weak var mapTypeSegmentButton: UISegmentedControl!
     @IBOutlet weak var selectLocationButton:UIButton!
     @IBOutlet weak var currentLocationButton:UIButton!
+    var type : LocationType = .source
     
     var placePicker: GMSPlacePicker?
     var mapView:GMSMapView!
@@ -80,18 +81,20 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
         p.y = p.y + currentLocationButton.frame.height/2
         let mapviewPoint = view.convert(p, to: mapView)
         let coord = mapView.projection.coordinate(for: mapviewPoint)
-        let address = DeliveryAddress()
+        
+        let address = DeliveryAddress(type: type)
         address.coordinate = coord
         
-        //If this is source
-        if Order.current == nil {
-            let order = Order()
-            order.fromAddress = address
-            Order.current = order
-            performSegue(withIdentifier: "destinationSegue", sender: nil)
+        if type == .source {
+            let viewcontroller = storyboard?.instantiateViewController(withIdentifier: "ToPointVC") as! LocationSelectViewController
+            viewcontroller.type = .destination
+            Order.current?.fromAddress = address
+            navigationController?.pushViewController(viewcontroller, animated: true)
         }else{
             Order.current?.toAddress = address
-            performSegue(withIdentifier: "submitSegue", sender: nil)
+            if let identifier = defaultStoryBoardIdentifier {
+                performSegue(withIdentifier: identifier, sender: nil)
+            }
         }
     }
     
@@ -104,10 +107,10 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
             coordingate = location.coordinate
         }).always {
             let camera = GMSCameraPosition.camera(withLatitude: coordingate.latitude,
-                                                  longitude: coordingate.longitude, zoom: 20)
+                                                  longitude: coordingate.longitude, zoom: 10)
             let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
             mapView.isMyLocationEnabled = true
-            mapView.mapType = kGMSTypeSatellite
+            mapView.mapType = kGMSTypeNormal
             mapView.delegate = self
             self.view.insertSubview(mapView, at: 0)
             self.mapView = mapView

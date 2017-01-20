@@ -42,6 +42,8 @@
 		FA55E36A1E2C0AE10004D3EA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55E3691E2C0AE10004D3EA /* Service.swift */; };
 		FA699FFE1E3156E600CB3FAF /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA699FFD1E3156E600CB3FAF /* Payment.swift */; };
 		FA8FA9481E2FFA3F009F403E /* CLLocationCordinateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FA9471E2FFA3F009F403E /* CLLocationCordinateExtension.swift */; };
+		FAB042AF1E322B5A00A8FEF9 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB042AE1E322B5A00A8FEF9 /* LocationTableViewCell.swift */; };
+		FAB042B11E322B7700A8FEF9 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB042B01E322B7700A8FEF9 /* LocationTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		FA55E3691E2C0AE10004D3EA /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		FA699FFD1E3156E600CB3FAF /* Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		FA8FA9471E2FFA3F009F403E /* CLLocationCordinateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCordinateExtension.swift; sourceTree = "<group>"; };
+		FAB042AE1E322B5A00A8FEF9 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		FAB042B01E322B7700A8FEF9 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +281,8 @@
 			children = (
 				FA55E3651E2C05D90004D3EA /* ServiceTableViewCell.xib */,
 				FA55E3671E2C08B90004D3EA /* ServiceTableViewCell.swift */,
+				FAB042AE1E322B5A00A8FEF9 /* LocationTableViewCell.swift */,
+				FAB042B01E322B7700A8FEF9 /* LocationTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 				TargetAttributes = {
 					FA07EDF21D788A9300CD6FB0 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 365RUM9J74;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -345,6 +352,7 @@
 			files = (
 				FA07EE011D788A9300CD6FB0 /* LaunchScreen.storyboard in Resources */,
 				FA07EDFE1D788A9300CD6FB0 /* Assets.xcassets in Resources */,
+				FAB042B11E322B7700A8FEF9 /* LocationTableViewCell.xib in Resources */,
 				FA07EDFC1D788A9300CD6FB0 /* Main.storyboard in Resources */,
 				FA07EE151D788D0800CD6FB0 /* CustomAlert.xib in Resources */,
 				FA55E3661E2C05D90004D3EA /* ServiceTableViewCell.xib in Resources */,
@@ -424,6 +432,7 @@
 				FA07EE331D788FF400CD6FB0 /* CourierListViewController.swift in Sources */,
 				FA07EE391D788FF400CD6FB0 /* RegisterViewController.swift in Sources */,
 				FA55E3681E2C08B90004D3EA /* ServiceTableViewCell.swift in Sources */,
+				FAB042AF1E322B5A00A8FEF9 /* LocationTableViewCell.swift in Sources */,
 				FA1102AD1E28C72C00E27B77 /* User.swift in Sources */,
 				FA699FFE1E3156E600CB3FAF /* Payment.swift in Sources */,
 				FA07EE0C1D788BEA00CD6FB0 /* Order.swift in Sources */,
@@ -554,8 +563,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: KOTESWARA MADIKANTI (365RUM9J74)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: KOTESWARA MADIKANTI (365RUM9J74)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KOTESWARA MADIKANTI (5D554DDJX4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KOTESWARA MADIKANTI (5D554DDJX4)";
+				DEVELOPMENT_TEAM = 365RUM9J74;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/feds/Frameworks",
@@ -565,7 +575,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shipnow.feds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7bbc689c-406e-4c05-986d-aaf87e2c56cc";
+				PROVISIONING_PROFILE = "a6a807e9-1de4-4968-a10f-21a51e473782";
+				PROVISIONING_PROFILE_SPECIFIER = "Feds User";
 				SWIFT_OBJC_BRIDGING_HEADER = feds/Others/abc.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -577,8 +588,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: KOTESWARA MADIKANTI (365RUM9J74)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: KOTESWARA MADIKANTI (5D554DDJX4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: KOTESWARA MADIKANTI (365RUM9J74)";
+				DEVELOPMENT_TEAM = 365RUM9J74;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/feds/Frameworks",
@@ -589,6 +601,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shipnow.feds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7bbc689c-406e-4c05-986d-aaf87e2c56cc";
+				PROVISIONING_PROFILE_SPECIFIER = "Feds App Store";
 				SWIFT_OBJC_BRIDGING_HEADER = feds/Others/abc.h;
 				SWIFT_VERSION = 3.0;
 			};

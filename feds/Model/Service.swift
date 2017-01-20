@@ -51,6 +51,10 @@ class Service {
         case car     = "Car"
         case van     = "Van"
         case invalid = "Invalid"
+        
+        var productId : Int{
+            return [ServiceType.bike, ServiceType.car, ServiceType.van, ServiceType.invalid].index(of: self)!
+        }
     }
 }
 

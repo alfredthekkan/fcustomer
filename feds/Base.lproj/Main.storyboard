@@ -514,26 +514,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="teA-Zq-Mdn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="543"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="QwZ-iA-6jh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EST-0J-rc1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EST-0J-rc1">
+                                            <rect key="frame" x="10" y="0.0" width="355" height="77"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45.00 AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35b-b9-E24">
-                                                    <rect key="frame" x="0.0" y="28.5" width="125" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="28.5" width="115" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h1g-n1-iug">
-                                                    <rect key="frame" x="125" y="4" width="125" height="69"/>
+                                                    <rect key="frame" x="120" y="4" width="115" height="69"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cg1-Bg-I9r">
-                                                    <rect key="frame" x="250" y="23.5" width="125" height="30"/>
+                                                    <rect key="frame" x="240" y="23.5" width="115" height="30"/>
                                                     <color key="backgroundColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="MORE PICTURE">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -548,14 +548,14 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="EST-0J-rc1" firstAttribute="top" secondItem="QwZ-iA-6jh" secondAttribute="top" id="AWQ-Vn-zes"/>
-                                        <constraint firstAttribute="trailing" secondItem="EST-0J-rc1" secondAttribute="trailing" id="On2-jn-fuC"/>
+                                        <constraint firstAttribute="trailing" secondItem="EST-0J-rc1" secondAttribute="trailing" constant="10" id="On2-jn-fuC"/>
                                         <constraint firstAttribute="bottom" secondItem="EST-0J-rc1" secondAttribute="bottom" id="kdk-db-hi5"/>
-                                        <constraint firstItem="EST-0J-rc1" firstAttribute="leading" secondItem="QwZ-iA-6jh" secondAttribute="leading" id="tnj-Ln-s3z"/>
+                                        <constraint firstItem="EST-0J-rc1" firstAttribute="leading" secondItem="QwZ-iA-6jh" secondAttribute="leading" constant="10" id="tnj-Ln-s3z"/>
                                     </constraints>
                                 </view>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZyL-ns-kHk">
-                                <rect key="frame" x="20" y="607" width="335" height="40"/>
+                                <rect key="frame" x="10" y="617" width="355" height="40"/>
                                 <color key="backgroundColor" red="0.10980392160000001" green="0.53725490200000003" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7HO-hw-9jw"/>
@@ -569,21 +569,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="V73-jr-kMF" firstAttribute="top" secondItem="ZyL-ns-kHk" secondAttribute="bottom" constant="20" id="4nF-g3-fJA"/>
-                            <constraint firstAttribute="trailing" secondItem="ZyL-ns-kHk" secondAttribute="trailing" constant="20" id="6aa-tN-Yuh"/>
+                            <constraint firstItem="V73-jr-kMF" firstAttribute="top" secondItem="ZyL-ns-kHk" secondAttribute="bottom" constant="10" id="4nF-g3-fJA"/>
+                            <constraint firstAttribute="trailing" secondItem="ZyL-ns-kHk" secondAttribute="trailing" constant="10" id="6aa-tN-Yuh"/>
                             <constraint firstAttribute="trailing" secondItem="teA-Zq-Mdn" secondAttribute="trailing" id="KE6-q5-zRW"/>
                             <constraint firstItem="teA-Zq-Mdn" firstAttribute="top" secondItem="Sdk-FY-z2q" secondAttribute="bottom" id="hho-wN-O7L"/>
-                            <constraint firstItem="ZyL-ns-kHk" firstAttribute="leading" secondItem="mn5-ub-LtG" secondAttribute="leading" constant="20" id="kT6-1o-JQU"/>
+                            <constraint firstItem="ZyL-ns-kHk" firstAttribute="leading" secondItem="mn5-ub-LtG" secondAttribute="leading" constant="10" id="kT6-1o-JQU"/>
                             <constraint firstItem="ZyL-ns-kHk" firstAttribute="top" secondItem="teA-Zq-Mdn" secondAttribute="bottom" id="nap-6m-nDG"/>
                             <constraint firstItem="teA-Zq-Mdn" firstAttribute="leading" secondItem="mn5-ub-LtG" secondAttribute="leading" id="yYk-ve-5BT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="itemImageView" destination="h1g-n1-iug" id="mDm-wC-O8K"/>
                         <outlet property="priceLabel" destination="35b-b9-E24" id="Wd6-lu-ET7"/>
                         <outlet property="tableView" destination="teA-Zq-Mdn" id="Fzw-tc-uHD"/>
+                        <segue destination="XGY-mT-AI6" kind="unwind" identifier="homesegue" unwindAction="unwindToHomeWithSegue:" id="udy-zH-VbD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kkb-dw-VTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XGY-mT-AI6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3188" y="62"/>
         </scene>
@@ -883,7 +886,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sug-B7-FHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010" y="4931"/>
+            <point key="canvasLocation" x="1596" y="1584"/>
         </scene>
         <!--Courier List View Controller-->
         <scene sceneID="RaO-7G-zCZ">
@@ -935,8 +938,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.84313725490000002" green="0.086274509799999996" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="lblLocationName" destination="6yf-XE-Uh4" id="eZ1-yX-GxC"/>
-                                            <outlet property="lblPrice" destination="wY2-vV-QnR" id="tVA-di-Bwi"/>
+                                            <outlet property="lblLocationName" destination="6yf-XE-Uh4" id="SZU-6w-fqE"/>
+                                            <outlet property="lblPrice" destination="wY2-vV-QnR" id="4fU-Vk-Zfx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -956,6 +959,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Y4S-bq-IZw" id="phE-SP-fyT"/>
+                        <segue destination="CXR-CS-tZR" kind="show" identifier="trackingSegue" id="Jjb-f6-iBn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UnL-fz-5wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
