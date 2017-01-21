@@ -26,7 +26,7 @@ class CourierListViewController: UIViewController {
     private func getOrders() {
         Order.fetch(completionHandler: {[weak self] orders, error in
             if orders != nil {
-                self?.orderArray = orders!
+                self?.orderArray = orders!.reversed()
                 self?.tableView.reloadData()
             }
         })

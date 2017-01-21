@@ -42,6 +42,8 @@
 		FA55E36A1E2C0AE10004D3EA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55E3691E2C0AE10004D3EA /* Service.swift */; };
 		FA699FFE1E3156E600CB3FAF /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA699FFD1E3156E600CB3FAF /* Payment.swift */; };
 		FA8FA9481E2FFA3F009F403E /* CLLocationCordinateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FA9471E2FFA3F009F403E /* CLLocationCordinateExtension.swift */; };
+		FA96F1411E3363E800615789 /* MTPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F1401E3363E800615789 /* MTPopUp.swift */; };
+		FA96F1431E33924C00615789 /* Paymentbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F1421E33924C00615789 /* Paymentbutton.swift */; };
 		FAB042AF1E322B5A00A8FEF9 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB042AE1E322B5A00A8FEF9 /* LocationTableViewCell.swift */; };
 		FAB042B11E322B7700A8FEF9 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB042B01E322B7700A8FEF9 /* LocationTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -89,6 +91,8 @@
 		FA55E3691E2C0AE10004D3EA /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		FA699FFD1E3156E600CB3FAF /* Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		FA8FA9471E2FFA3F009F403E /* CLLocationCordinateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCordinateExtension.swift; sourceTree = "<group>"; };
+		FA96F1401E3363E800615789 /* MTPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPopUp.swift; sourceTree = "<group>"; };
+		FA96F1421E33924C00615789 /* Paymentbutton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paymentbutton.swift; sourceTree = "<group>"; };
 		FAB042AE1E322B5A00A8FEF9 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		FAB042B01E322B7700A8FEF9 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +196,7 @@
 			children = (
 				FA07EE111D788D0800CD6FB0 /* CustomAlert.xib */,
 				FA07EE131D788D0800CD6FB0 /* ViewFiles */,
+				FA96F1421E33924C00615789 /* Paymentbutton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 		FA07EE181D788E0300CD6FB0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA96F13F1E3363E800615789 /* MTPopupClass */,
 				FA07EE191D788E0300CD6FB0 /* ImageBlur */,
 				FA07EE1C1D788E0300CD6FB0 /* Networking */,
 			);
@@ -285,6 +291,14 @@
 				FAB042B01E322B7700A8FEF9 /* LocationTableViewCell.xib */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		FA96F13F1E3363E800615789 /* MTPopupClass */ = {
+			isa = PBXGroup;
+			children = (
+				FA96F1401E3363E800615789 /* MTPopUp.swift */,
+			);
+			path = MTPopupClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,9 +440,11 @@
 				FA07EE261D788EFA00CD6FB0 /* UIExtensions.swift in Sources */,
 				FA07EE1F1D788E0300CD6FB0 /* UIImage+ImageEffects.m in Sources */,
 				FA07EE3D1D788FF400CD6FB0 /* TrackingViewController.swift in Sources */,
+				FA96F1431E33924C00615789 /* Paymentbutton.swift in Sources */,
 				FA07EE351D788FF400CD6FB0 /* HomeCollectionViewController.swift in Sources */,
 				FA07EE0B1D788BEA00CD6FB0 /* DeliveryAddress.swift in Sources */,
 				FA07EE341D788FF400CD6FB0 /* EstimateViewController.swift in Sources */,
+				FA96F1411E3363E800615789 /* MTPopUp.swift in Sources */,
 				FA07EE331D788FF400CD6FB0 /* CourierListViewController.swift in Sources */,
 				FA07EE391D788FF400CD6FB0 /* RegisterViewController.swift in Sources */,
 				FA55E3681E2C08B90004D3EA /* ServiceTableViewCell.swift in Sources */,

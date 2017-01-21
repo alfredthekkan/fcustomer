@@ -27,7 +27,7 @@ class TrackingViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         let camera = GMSCameraPosition.camera(withLatitude: 24.00,
-                                                          longitude: 54.00, zoom: 20)
+                                                          longitude: 54.00, zoom: 10)
         
         
         var frame = self.view.bounds

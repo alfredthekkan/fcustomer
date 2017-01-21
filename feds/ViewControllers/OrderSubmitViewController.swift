@@ -20,10 +20,13 @@ class OrderSubmitViewController: FormViewController {
         super.viewDidLoad()
         setupForm()
         getPlaceName()
-        
+        _addBarbuttons()
+        getDistance()
         //TODO: - Get the right payment method
         Order.current?.payment = Payment(type: .creditCard)
     }
+    
+    //MARK: - Private Methods
     private func getPlaceName() {
         Order.current?.fromAddress?.coordinate.getPlaceName{ [weak self] place, error in
             if error != nil { return }
@@ -35,6 +38,13 @@ class OrderSubmitViewController: FormViewController {
             Order.current?.toAddress?.address = place
             self?.form.rowBy(tag: "destination")?.baseValue = place
         }
+    }
+    private func _addBarbuttons() {
+        let homeButton = UIBarButtonItem(image: UIImage(named:"home"), style: .plain, target: self, action: #selector(OrderSubmitViewController.homeTapped))
+        navigationItem.rightBarButtonItem = homeButton
+    }
+    func homeTapped() {
+        performSegue(withIdentifier: "unwind", sender: nil)
     }
     private func setupForm() {
         tableView?.rowHeight = UITableViewAutomaticDimension
@@ -57,19 +67,17 @@ class OrderSubmitViewController: FormViewController {
          <<< ServiceRow() {
                 $0.value = Service.createService(.bike)
                 }.onCellSelection({[weak self] cell, row in
-                    self?.getPrice(1)
-         })
+                    self?.priceLabel.text = "30 AED"
+                    Order.current?.price = 30
+                })
          <<< ServiceRow() {
                $0.value = Service.createService(.car)
                 }.onCellSelection({[weak self] cell, row in
-                    self?.getPrice(2)
+                    self?.priceLabel.text = "40 AED"
+                    Order.current?.price = 40
                 })
-         <<< ServiceRow() {
-                $0.value = Service.createService(.van)
-                }.onCellSelection({[weak self] cell, row in
-                    self?.getPrice(3)
-         })
     }
+    //MARK: - IBActions
     @IBAction func addPicture(_ sender: Any) {
         self.imagePicker.allowsEditing = false
         self.imagePicker.delegate = self
@@ -79,21 +87,27 @@ class OrderSubmitViewController: FormViewController {
     
     @IBAction func submit(_ sender: Any) {
         Order.current?.submit().response{[weak self] response in
-            if let _ = response.error { return }
-            if let identifier = self?.defaultStoryBoardIdentifier {
-                self?.performSegue(withIdentifier: identifier, sender: nil)
+            if let error = response.error {
+                self?.show(title: "Error", message: error.localizedDescription)
+                return
+            }
+            self?.show(title: "Order", message: "Submitted successfully") {
+                if let identifier = self?.defaultStoryBoardIdentifier {
+                    self?.performSegue(withIdentifier: identifier, sender: nil)
+                }
             }
         }
     }
-    private func getPrice(_ service: Int) {
+    //MARK: - Private Methods
+    private func getDistance() {
         Order.current?.fromAddress?.getDistance(fromAddress: (Order.current?.toAddress)!){distance, error in
             if let distanceMeter = distance?.rows?[0].elements?[0].distance?.value {
                 Order.current?.distance = distanceMeter/1000
-                Order.current?.getPrice(distanceMeter/1000, service: service){[weak self]price, error in
-                    if error != nil { return }
-                    self?.priceLabel.text = "\(price) AED"
-                    Order.current?.price = price
-                }
+//                Order.current?.getPrice(distanceMeter/1000, service: service){[weak self]price, error in
+//                    if error != nil { return }
+//                    self?.priceLabel.text = "\(price) AED"
+//                    Order.current?.price = price
+//                }
             }
         }
     }

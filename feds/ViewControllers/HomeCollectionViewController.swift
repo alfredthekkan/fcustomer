@@ -82,15 +82,16 @@ class HomeCollectionViewController: UIViewController {
         view.insertSubview(iv, at: 1)
     }
     
-    fileprivate func _showAlert(_ item :ServiceRequestable) {
+    fileprivate func _showAlert(_ item :RequestItem) {
         let width = UIScreen.main.bounds.width
         let padding:CGFloat = 20
         let alertView = AlertCustomView(frame: CGRect(x: 0,y: 0,width: width - 2 * padding,height: 200))
         alertView.onApprove = {
-            item.request().response(completionHandler: { response in
+            item.request().response(completionHandler: { [weak self] response in
                 if let error = response.error {
                     print("Error: \(error.localizedDescription)")
                 }
+                self?.show(title: item.type.rawValue, message: "Our Agent will contact you shortly")
                 print("Successfully Requested")
             })
         }
@@ -131,8 +132,8 @@ extension HomeCollectionViewController:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let item = MenuItem.allitems()[indexPath.row]
-        if item is ServiceRequestable {
-            _showAlert(item as! ServiceRequestable)
+        if item is RequestItem {
+            _showAlert(item as! RequestItem)
         }
         switch item.type {
         case .newOrder:

@@ -118,34 +118,13 @@ extension UITextField {
 }
 
 extension UILabel{
-    
-    func requiredHeight() -> CGFloat{
-        
-        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: CGFloat.greatestFiniteMagnitude))
-        
-        print("label width is \(self.frame.width)")
-        label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
-        label.font = self.font
-        label.text = self.text
-        
-        label.sizeToFit()
-        
-        return label.frame.height
-        
-        
-    }
-    
     func requiredHeight(_ wid:CGFloat) -> CGFloat{
-        
         let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: wid, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = self.font
         label.text = self.text
-        
         label.sizeToFit()
-        
         return label.frame.height
     }
 }
@@ -196,5 +175,17 @@ extension UIViewController {
             }
         }
     return nil
+    }
+    
+    func show(title: String, message: String, completionHandler: (() -> ())? = nil ) {
+        MTPopUp(frame: self.view.frame).show(complete: { (index) in
+            completionHandler?()
+            //Set your custom code here as per index.
+        },
+                                             view: self.view,
+                                             animationType: MTAnimation.TopToMoveCenter,
+                                             strMessage: message,
+                                             btnArray: ["Done"],
+                                             strTitle: title)
     }
 }

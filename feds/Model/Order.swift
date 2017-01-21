@@ -25,7 +25,7 @@ final class Order {
             _current = newValue
         }
     }
-    fileprivate var _addresses = [DeliveryAddress]()
+    fileprivate var _addresses:[DeliveryAddress] = [DeliveryAddress(type: .source), DeliveryAddress(type: .destination)]
     var fromAddress     :DeliveryAddress?{
         get{
             return _addresses.first
@@ -92,7 +92,8 @@ extension Order {
         
         let deviceID = UIDevice.current.identifierForVendor?.uuidString
         var orderInfo = Order.current?.toJSON()
-        var addresses = [self.fromAddress?.toJSON(), self.toAddress?.toJSON()]
+        orderInfo?.removeValue(forKey: "addresslist")
+        var addresses = [self.fromAddress!.toJSON(), self.toAddress!.toJSON()]
         
         orderInfo?["user_device_id"] = deviceID
         orderInfo?["accessToken"] = User.current.accessToken
@@ -136,3 +137,4 @@ extension Dictionary {
         }
     }
 }
+

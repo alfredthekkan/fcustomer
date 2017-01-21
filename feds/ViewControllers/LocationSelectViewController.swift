@@ -24,12 +24,9 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "PICKUP FROM"
-        let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(LocationSelectViewController.onLaunchClicked(_:)))
-        navigationItem.rightBarButtonItem = searchBtn
         _addMap()
         _customizeView()
+        _addBarbuttons()
     }
     
     //MARK: - User Interaction
@@ -44,6 +41,11 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
         self.present(acController, animated: true, completion: nil)
     }
     
+    @IBAction func skipTapped(_ sender: Any) {
+        if let id = defaultStoryBoardIdentifier {
+            performSegue(withIdentifier: id, sender: nil)
+        }
+    }
     // Add a UIButton in Interface Builder to call this function
     @IBAction func pickPlace(_ sender: UIButton) {
         let center = CLLocationCoordinate2DMake(37.788204, -122.411937)
@@ -99,6 +101,17 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
     }
     
     //MARK: - Private Methods
+    private func _addBarbuttons() {
+        let homeButton = UIBarButtonItem(image: UIImage(named:"home"), style: .plain, target: self, action: #selector(LocationSelectViewController.homeTapped))
+        navigationItem.rightBarButtonItem = homeButton
+        let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(LocationSelectViewController.onLaunchClicked(_:)))
+        navigationItem.rightBarButtonItem = searchBtn
+        navigationItem.rightBarButtonItems = [homeButton, searchBtn]
+    }
+    func homeTapped() {
+        performSegue(withIdentifier: "unwind", sender: nil)
+    }
+    
     private func _addMap(){
         var coordingate :CLLocationCoordinate2D = CLLocationCoordinate2D.init()
         let _ = firstly(execute: {
@@ -107,7 +120,7 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
             coordingate = location.coordinate
         }).always {
             let camera = GMSCameraPosition.camera(withLatitude: coordingate.latitude,
-                                                  longitude: coordingate.longitude, zoom: 10)
+                                                  longitude: coordingate.longitude, zoom: 15)
             let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
             mapView.isMyLocationEnabled = true
             mapView.mapType = kGMSTypeNormal
