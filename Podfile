@@ -30,6 +30,9 @@ pod "PromiseKit", "~> 4.0"
 pod "PromiseKit/CoreLocation"
 pod "PromiseKit/UIKit", "~> 4.0"
 
+# progress indicators
+pod "KRProgressHUD"
+
 end
 
 post_install do |installer|

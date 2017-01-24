@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import CoreLocation
+import KRProgressHUD
 
 import FBSDKCoreKit
 import FBSDKLoginKit
@@ -66,7 +67,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         if !isValid() { return }
         let username = txtUsername.text!
         let password = txtPassword.text!
+        
+        KRProgressHUD.show()
         User.login(username, password).response(completionHandler : {[weak self] response in
+            KRProgressHUD.dismiss()
             if let error = response.error {
                 print("Error: \(error.localizedDescription)")
                 return

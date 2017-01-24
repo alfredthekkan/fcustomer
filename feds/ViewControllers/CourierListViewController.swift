@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class CourierListViewController: UIViewController {
     
@@ -24,7 +25,9 @@ class CourierListViewController: UIViewController {
     }
 
     private func getOrders() {
+        KRProgressHUD.show()
         Order.fetch(completionHandler: {[weak self] orders, error in
+            KRProgressHUD.dismiss()
             if orders != nil {
                 self?.orderArray = orders!.reversed()
                 self?.tableView.reloadData()

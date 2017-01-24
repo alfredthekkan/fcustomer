@@ -9,6 +9,7 @@
 import UIKit
 import ObjectMapper
 import Alamofire
+import KRProgressHUD
 
 class RegisterViewController: UIViewController {
     
@@ -86,7 +87,9 @@ class RegisterViewController: UIViewController {
         let phoneNumber = txtPhoneNumber.text
         //:{"firstname":"kotesh","lastname":"madikanti","mobile":"9848868560","email":"kotesh@gmail.com"}
         let inputDict = NSDictionary(objects: [username!,password!,email!,phoneNumber!,"test last name"], forKeys: ["firstname" as NSCopying,"password" as NSCopying,"email" as NSCopying,"mobile" as NSCopying,"lastname" as NSCopying])
+        KRProgressHUD.show()
         User.create(inputDict as! Parameters).responseJSON(completionHandler: {[weak self] response in
+            KRProgressHUD.dismiss()
             if let error = response.result.error {
                 print(error.localizedDescription)
                 return

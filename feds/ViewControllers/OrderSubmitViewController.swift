@@ -10,6 +10,7 @@ import UIKit
 import Eureka
 import ObjectMapper
 import CoreLocation
+import KRProgressHUD
 
 class OrderSubmitViewController: FormViewController {
 
@@ -86,7 +87,9 @@ class OrderSubmitViewController: FormViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
+        KRProgressHUD.show()
         Order.current?.submit().response{[weak self] response in
+            KRProgressHUD.dismiss()
             if let error = response.error {
                 self?.show(title: "Error", message: error.localizedDescription)
                 return
@@ -103,11 +106,6 @@ class OrderSubmitViewController: FormViewController {
         Order.current?.fromAddress?.getDistance(fromAddress: (Order.current?.toAddress)!){distance, error in
             if let distanceMeter = distance?.rows?[0].elements?[0].distance?.value {
                 Order.current?.distance = distanceMeter/1000
-//                Order.current?.getPrice(distanceMeter/1000, service: service){[weak self]price, error in
-//                    if error != nil { return }
-//                    self?.priceLabel.text = "\(price) AED"
-//                    Order.current?.price = price
-//                }
             }
         }
     }
