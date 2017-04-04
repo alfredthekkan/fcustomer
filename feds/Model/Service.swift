@@ -55,6 +55,21 @@ class Service {
         var productId : Int{
             return [ServiceType.bike, ServiceType.car, ServiceType.van, ServiceType.invalid].index(of: self)!
         }
+        
+        var image : UIImage{
+            get {
+                switch self {
+                case .bike:
+                    return UIImage(named: "bike_service")!
+                case .car:
+                    return UIImage(named: "car_service")!
+                case .van:
+                    return UIImage(named: "truck_service")!
+                default:
+                    return UIImage(named: "bike_service")!
+                }
+            }
+        }
     }
 }
 

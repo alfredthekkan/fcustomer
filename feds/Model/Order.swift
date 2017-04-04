@@ -25,7 +25,7 @@ final class Order {
             _current = newValue
         }
     }
-    fileprivate var _addresses:[DeliveryAddress] = [DeliveryAddress(type: .source), DeliveryAddress(type: .destination)]
+    fileprivate var _addresses:[DeliveryAddress] = [DeliveryAddress(type: .source)]
     var fromAddress     :DeliveryAddress?{
         get{
             return _addresses.first
@@ -36,9 +36,13 @@ final class Order {
     
     var toAddress     :DeliveryAddress?{
         get{
-            return _addresses.last
+            return _addresses.count > 1 ? _addresses.last : nil
         }set{
-            _addresses[1] = newValue!
+            if _addresses.count > 1 {
+                _addresses[1] = newValue!
+            }else{
+                _addresses.append(newValue!)
+            }
         }
     }
     var mobile          :String?
@@ -51,7 +55,7 @@ final class Order {
     var userName        :String?
     var service         :Service.ServiceType = .invalid
     var payment         :Payment?
-    var distance        :Double!
+    var distance        :Double! = 0
     
     required init?(map: Map) {}
     init() {}
@@ -78,7 +82,7 @@ extension Order {
     static func fetch(completionHandler : @escaping ([Order]?, Error?) -> Void) {
         let URL = API.Url!.appendingPathComponent("getorders")
         let params = ["accessToken":User.current.accessToken!]
-        SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).validate().responseArray(keyPath: "data") {(response : DataResponse<[Order]>) in
+        SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).validateErrors().responseArray(keyPath: "data") {(response : DataResponse<[Order]>) in
             if let error = response.result.error {
                 completionHandler(nil, error)
                 return
@@ -92,10 +96,15 @@ extension Order {
         
         let deviceID = UIDevice.current.identifierForVendor?.uuidString
         var orderInfo = Order.current?.toJSON()
-        orderInfo?.removeValue(forKey: "addresslist")
-        var addresses = [self.fromAddress!.toJSON(), self.toAddress!.toJSON()]
+        let _ = orderInfo?.removeValue(forKey: "addresslist")
+        var addresses:[Any]
+        if toAddress != nil  {
+            addresses = [self.fromAddress!.toJSON(), self.toAddress!.toJSON()]
+        }else{
+            addresses = [self.fromAddress!.toJSON()]
+        }
         
-        orderInfo?["user_device_id"] = deviceID
+        orderInfo?["user_device_id"] = deviceID   
         orderInfo?["accessToken"] = User.current.accessToken
         orderInfo?["paymenttype"] = Order.current?.payment?.type?.rawValue
         orderInfo?["gatewaytoken"] = ""
@@ -108,8 +117,9 @@ extension Order {
         let parameters = map.JSON
         print(parameters)
         
-        return SessionManager.default.request(URL, method: .post, parameters: parameters, encoding : JSONEncoding.default).validate().responseJSON(completionHandler: {response in
+        return SessionManager.default.request(URL, method: .post, parameters: parameters, encoding : JSONEncoding.default).validateErrors().responseJSON(completionHandler: {response in
             if let _ = response.result.error { return }
+            Order.current = nil
         })
     }
     

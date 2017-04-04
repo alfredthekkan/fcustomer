@@ -10,15 +10,15 @@ import UIKit
 import Alamofire
 import CoreLocation
 import KRProgressHUD
-
+import PromiseKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var btnLogin:UIButton!
+    @IBOutlet weak var btnForgot:UIButton!
     @IBOutlet weak var btnRegister:UIButton!
-    @IBOutlet weak var forgotPassword:UIButton!
     @IBOutlet weak var txtUsername:UITextField!
     @IBOutlet weak var txtPassword:UITextField!
     @IBOutlet weak var lblEmail:UILabel!
@@ -28,11 +28,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var scrollView:UIScrollView!
     @IBOutlet weak var contentView:UIView!
     
+    var fbPromise =  Promise<String>.pending()
+    
     //MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeUI()
         addLoginButton()
+        fbFlow()
     }
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -72,9 +75,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         User.login(username, password).response(completionHandler : {[weak self] response in
             KRProgressHUD.dismiss()
             if let error = response.error {
-                print("Error: \(error.localizedDescription)")
+                self?.show(error: error)
                 return
             }
+            User.isAuthorized = true
             let x = self?.storyboard?.instantiateViewController(withIdentifier: "HomeVC")
             self?.present(x!, animated: true, completion: nil)
         })
@@ -82,6 +86,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     func isValid() -> Bool {
         let isValid = (txtUsername.text != "") && (txtPassword.text != "")
         return isValid
+    }
+    
+    func goHome() {
+        let x = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC")
+        view.window?.rootViewController = x
     }
     
     // MARK: Text Field Delegate
@@ -122,6 +131,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         self.btnFbLogin = loginbutton
         loginbutton.translatesAutoresizingMaskIntoConstraints = false
         self.btnFbLogin.readPermissions = ["email"]
+        self.btnFbLogin.delegate = self
         contentView.addSubview(loginbutton)
         let leadingConstraint = NSLayoutConstraint(item: loginbutton, attribute: .leading, relatedBy: .equal, toItem: btnRegister, attribute: .leading, multiplier: 1.0, constant: 0)
         let trailingConstraint = NSLayoutConstraint(item: loginbutton, attribute: .trailing, relatedBy: .equal, toItem: btnRegister, attribute: .trailing, multiplier: 1.0, constant: 0)
@@ -129,4 +139,70 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         let verticalConstraint = NSLayoutConstraint(item: loginbutton, attribute: .top, relatedBy: .equal, toItem: btnRegister, attribute: .bottom, multiplier: 1.0, constant: 24)
         contentView.addConstraints([leadingConstraint,trailingConstraint,heightConstraint,verticalConstraint])
     }
+    
+     func fbFlow() {
+        fbPromise.promise.then { email -> Promise<Void> in
+            self.sendTokenToServer(FBSDKAccessToken.current().tokenString, email)
+            }.then { _ -> Void in
+                User.isAuthorized = true
+                self.goHome()
+            }.catch { error in
+                self.show(error: error)
+        }
+    }
+    
+    func sendTokenToServer(_ token: String, _ email: String) -> Promise<Void>{
+        return Promise<Void> { fulfill, reject in
+            KRProgressHUD.show()
+            User.fbLogin(token,email).response(completionHandler : { response in
+                KRProgressHUD.dismiss()
+                if let error = response.error {
+                    reject(error)
+                }
+                fulfill()
+            })
+        }
+    }
+    
+}
+
+extension LoginViewController: FBSDKLoginButtonDelegate {
+    
+    public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
+    }
+
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            fbPromise.reject(error)
+        }
+        if result.token != nil  {
+            let req = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name"], tokenString: result.token.tokenString, version: nil, httpMethod: "GET")
+            let _ = req?.start(completionHandler: { (_, result, error) -> Void in
+                if(error == nil)
+                {
+                    print("result \(result)")
+                    if let val = result as? [String: Any] {
+                        let email = val["email"] as! String
+                        self.fbPromise.fulfill(email)
+                    }
+                }
+                else
+                {
+                    self.fbPromise.reject(error!)
+                }
+            })
+            
+            //fbPromise.fulfill(result.token.tokenString)
+        }else {
+            fbPromise.reject(FBLoginError.loginError)
+        }
+        
+        
+        
+    }
+}
+
+enum FBLoginError: Error {
+    case loginError
 }

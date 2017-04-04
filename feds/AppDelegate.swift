@@ -16,12 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         GMSServices.provideAPIKey(GlobalConstants.GOOGLE_MAPS_API_KEY)
         
-        let defaults = UserDefaults.standard
-        
-        if defaults.string(forKey: GlobalConstants.KEY_ACCESS_TOKEN) != nil {
+        if User.isAuthorized {
             let st = UIStoryboard(name: "Main", bundle: nil)
             let hm = st.instantiateViewController(withIdentifier: "HomeVC")
             window?.rootViewController = hm
@@ -29,8 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
+       
 
         // Override point for customization after application launch.
         return true

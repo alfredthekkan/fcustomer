@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertCustomView" customModule="Fedex" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertCustomView" customModule="feds" customModuleProvider="target">
             <connections>
                 <outlet property="lblQuestion" destination="6ch-2t-RVc" id="YTq-sU-koy"/>
                 <outlet property="view" destination="iN0-l3-epB" id="yR9-UM-PbT"/>
@@ -39,7 +43,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.90196078430000004" green="0.12941176469999999" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.90196078430000004" green="0.12941176469999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="6ch-2t-RVc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="21" id="2Pq-jo-evQ"/>
                 <constraint firstItem="iRZ-RJ-glm" firstAttribute="leading" secondItem="H6n-5N-4Bq" secondAttribute="trailing" constant="20" id="RqP-j8-oPh"/>
@@ -52,7 +56,7 @@
                 <constraint firstItem="H6n-5N-4Bq" firstAttribute="leading" secondItem="6ch-2t-RVc" secondAttribute="leading" id="vZY-tD-z7D"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="389.5" y="192.5"/>
+            <point key="canvasLocation" x="63" y="47"/>
         </view>
     </objects>
     <resources>

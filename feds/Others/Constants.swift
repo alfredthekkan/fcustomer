@@ -21,7 +21,7 @@ struct GlobalConstants {
     
     static let KEY_ACCESS_TOKEN = "accessToken"
 
-    
+    static let kIsAuthorized = "isauthorized"
     
     static let AFNETWORKING_ERROR_KEY = "com.alamofire.serialization.response.error.data"
     

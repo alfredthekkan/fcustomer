@@ -36,16 +36,26 @@
 		FA1102A91E287A4400E27B77 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1102A81E287A4400E27B77 /* API.swift */; };
 		FA1102AD1E28C72C00E27B77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1102AC1E28C72C00E27B77 /* User.swift */; };
 		FA1102AF1E290DB100E27B77 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1102AE1E290DB100E27B77 /* MenuItem.swift */; };
+		FA50BF3F1E91E7A4006BCEB8 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BF3E1E91E7A4006BCEB8 /* ForgotPasswordViewController.swift */; };
 		FA55E3631E2C040C0004D3EA /* OrderSubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55E3621E2C040C0004D3EA /* OrderSubmitViewController.swift */; };
 		FA55E3661E2C05D90004D3EA /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA55E3651E2C05D90004D3EA /* ServiceTableViewCell.xib */; };
 		FA55E3681E2C08B90004D3EA /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55E3671E2C08B90004D3EA /* ServiceTableViewCell.swift */; };
 		FA55E36A1E2C0AE10004D3EA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55E3691E2C0AE10004D3EA /* Service.swift */; };
+		FA5DCC301E6F420D00AFD142 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DCC2F1E6F420D00AFD142 /* Session.swift */; };
+		FA62EA091E8ED1D500138461 /* RuleEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA62EA081E8ED1D500138461 /* RuleEqual.swift */; };
 		FA699FFE1E3156E600CB3FAF /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA699FFD1E3156E600CB3FAF /* Payment.swift */; };
 		FA8FA9481E2FFA3F009F403E /* CLLocationCordinateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FA9471E2FFA3F009F403E /* CLLocationCordinateExtension.swift */; };
 		FA96F1411E3363E800615789 /* MTPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F1401E3363E800615789 /* MTPopUp.swift */; };
 		FA96F1431E33924C00615789 /* Paymentbutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96F1421E33924C00615789 /* Paymentbutton.swift */; };
 		FAB042AF1E322B5A00A8FEF9 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB042AE1E322B5A00A8FEF9 /* LocationTableViewCell.swift */; };
 		FAB042B11E322B7700A8FEF9 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB042B01E322B7700A8FEF9 /* LocationTableViewCell.xib */; };
+		FAD1AC051E71A5C800F86806 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD1AC041E71A5C800F86806 /* TextFieldTableViewCell.xib */; };
+		FAD1AC071E71A6D300F86806 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1AC061E71A6D300F86806 /* TextFieldTableViewCell.swift */; };
+		FAD1AC091E71B71000F86806 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1AC081E71B71000F86806 /* TestViewController.swift */; };
+		FAD1AC0B1E73E50C00F86806 /* BackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1AC0A1E73E50C00F86806 /* BackView.swift */; };
+		FAD1AC0D1E73E7AB00F86806 /* FDButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1AC0C1E73E7AB00F86806 /* FDButtonTableViewCell.swift */; };
+		FAD1AC0F1E73E7D100F86806 /* FDButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD1AC0E1E73E7D100F86806 /* FDButtonTableViewCell.xib */; };
+		FAD1AC111E73FF2100F86806 /* FDNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1AC101E73FF2100F86806 /* FDNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,16 +95,26 @@
 		FA1102A81E287A4400E27B77 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FA1102AC1E28C72C00E27B77 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA1102AE1E290DB100E27B77 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = ../../MenuItem.swift; sourceTree = "<group>"; };
+		FA50BF3E1E91E7A4006BCEB8 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		FA55E3621E2C040C0004D3EA /* OrderSubmitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSubmitViewController.swift; sourceTree = "<group>"; };
 		FA55E3651E2C05D90004D3EA /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
 		FA55E3671E2C08B90004D3EA /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		FA55E3691E2C0AE10004D3EA /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		FA5DCC2F1E6F420D00AFD142 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		FA62EA081E8ED1D500138461 /* RuleEqual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleEqual.swift; sourceTree = "<group>"; };
 		FA699FFD1E3156E600CB3FAF /* Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		FA8FA9471E2FFA3F009F403E /* CLLocationCordinateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCordinateExtension.swift; sourceTree = "<group>"; };
 		FA96F1401E3363E800615789 /* MTPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPopUp.swift; sourceTree = "<group>"; };
 		FA96F1421E33924C00615789 /* Paymentbutton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paymentbutton.swift; sourceTree = "<group>"; };
 		FAB042AE1E322B5A00A8FEF9 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		FAB042B01E322B7700A8FEF9 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		FAD1AC041E71A5C800F86806 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		FAD1AC061E71A6D300F86806 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		FAD1AC081E71B71000F86806 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FAD1AC0A1E73E50C00F86806 /* BackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackView.swift; sourceTree = "<group>"; };
+		FAD1AC0C1E73E7AB00F86806 /* FDButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDButtonTableViewCell.swift; sourceTree = "<group>"; };
+		FAD1AC0E1E73E7D100F86806 /* FDButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FDButtonTableViewCell.xib; sourceTree = "<group>"; };
+		FAD1AC101E73FF2100F86806 /* FDNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +171,7 @@
 		FA07EDF51D788A9300CD6FB0 /* feds */ = {
 			isa = PBXGroup;
 			children = (
+				FA62EA071E8ED1C300138461 /* Eureka */,
 				FA55E3641E2C05C10004D3EA /* TableViewCells */,
 				FA1102A71E287A3400E27B77 /* Networking */,
 				FA07EE3E1D78943700CD6FB0 /* Frameworks */,
@@ -179,6 +200,7 @@
 				FA55E3691E2C0AE10004D3EA /* Service.swift */,
 				FA8FA9471E2FFA3F009F403E /* CLLocationCordinateExtension.swift */,
 				FA699FFD1E3156E600CB3FAF /* Payment.swift */,
+				FA5DCC2F1E6F420D00AFD142 /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +209,10 @@
 			isa = PBXGroup;
 			children = (
 				FA07EE0E1D788CE100CD6FB0 /* CourierTableViewCell.swift */,
+				FAD1AC041E71A5C800F86806 /* TextFieldTableViewCell.xib */,
+				FAD1AC061E71A6D300F86806 /* TextFieldTableViewCell.swift */,
+				FAD1AC0C1E73E7AB00F86806 /* FDButtonTableViewCell.swift */,
+				FAD1AC0E1E73E7D100F86806 /* FDButtonTableViewCell.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -197,6 +223,8 @@
 				FA07EE111D788D0800CD6FB0 /* CustomAlert.xib */,
 				FA07EE131D788D0800CD6FB0 /* ViewFiles */,
 				FA96F1421E33924C00615789 /* Paymentbutton.swift */,
+				FAD1AC0A1E73E50C00F86806 /* BackView.swift */,
+				FAD1AC101E73FF2100F86806 /* FDNavigationBar.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -259,6 +287,8 @@
 				FA07EE2F1D788FF400CD6FB0 /* LocationSelectViewController.swift */,
 				FA07EE321D788FF400CD6FB0 /* TrackingViewController.swift */,
 				FA55E3621E2C040C0004D3EA /* OrderSubmitViewController.swift */,
+				FAD1AC081E71B71000F86806 /* TestViewController.swift */,
+				FA50BF3E1E91E7A4006BCEB8 /* ForgotPasswordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +321,14 @@
 				FAB042B01E322B7700A8FEF9 /* LocationTableViewCell.xib */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		FA62EA071E8ED1C300138461 /* Eureka */ = {
+			isa = PBXGroup;
+			children = (
+				FA62EA081E8ED1D500138461 /* RuleEqual.swift */,
+			);
+			path = Eureka;
 			sourceTree = "<group>";
 		};
 		FA96F13F1E3363E800615789 /* MTPopupClass */ = {
@@ -336,7 +374,7 @@
 				TargetAttributes = {
 					FA07EDF21D788A9300CD6FB0 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 365RUM9J74;
+						DevelopmentTeam = XSTQG9NP3Y;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -367,7 +405,9 @@
 				FA07EE011D788A9300CD6FB0 /* LaunchScreen.storyboard in Resources */,
 				FA07EDFE1D788A9300CD6FB0 /* Assets.xcassets in Resources */,
 				FAB042B11E322B7700A8FEF9 /* LocationTableViewCell.xib in Resources */,
+				FAD1AC0F1E73E7D100F86806 /* FDButtonTableViewCell.xib in Resources */,
 				FA07EDFC1D788A9300CD6FB0 /* Main.storyboard in Resources */,
+				FAD1AC051E71A5C800F86806 /* TextFieldTableViewCell.xib in Resources */,
 				FA07EE151D788D0800CD6FB0 /* CustomAlert.xib in Resources */,
 				FA55E3661E2C05D90004D3EA /* ServiceTableViewCell.xib in Resources */,
 			);
@@ -429,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1102A91E287A4400E27B77 /* API.swift in Sources */,
+				FA5DCC301E6F420D00AFD142 /* Session.swift in Sources */,
 				FA55E36A1E2C0AE10004D3EA /* Service.swift in Sources */,
 				FA07EE171D788D0900CD6FB0 /* AlertCustomView.swift in Sources */,
 				FA07EE0F1D788CE100CD6FB0 /* CourierTableViewCell.swift in Sources */,
@@ -436,23 +477,30 @@
 				FA07EE3A1D788FF400CD6FB0 /* LocationSelectViewController.swift in Sources */,
 				FA07EE381D788FF400CD6FB0 /* PaymentViewController.swift in Sources */,
 				FA8FA9481E2FFA3F009F403E /* CLLocationCordinateExtension.swift in Sources */,
+				FAD1AC071E71A6D300F86806 /* TextFieldTableViewCell.swift in Sources */,
 				FA07EE371D788FF400CD6FB0 /* LoginViewController.swift in Sources */,
+				FAD1AC0D1E73E7AB00F86806 /* FDButtonTableViewCell.swift in Sources */,
 				FA07EE261D788EFA00CD6FB0 /* UIExtensions.swift in Sources */,
 				FA07EE1F1D788E0300CD6FB0 /* UIImage+ImageEffects.m in Sources */,
 				FA07EE3D1D788FF400CD6FB0 /* TrackingViewController.swift in Sources */,
 				FA96F1431E33924C00615789 /* Paymentbutton.swift in Sources */,
 				FA07EE351D788FF400CD6FB0 /* HomeCollectionViewController.swift in Sources */,
+				FAD1AC111E73FF2100F86806 /* FDNavigationBar.swift in Sources */,
 				FA07EE0B1D788BEA00CD6FB0 /* DeliveryAddress.swift in Sources */,
 				FA07EE341D788FF400CD6FB0 /* EstimateViewController.swift in Sources */,
 				FA96F1411E3363E800615789 /* MTPopUp.swift in Sources */,
 				FA07EE331D788FF400CD6FB0 /* CourierListViewController.swift in Sources */,
+				FA62EA091E8ED1D500138461 /* RuleEqual.swift in Sources */,
 				FA07EE391D788FF400CD6FB0 /* RegisterViewController.swift in Sources */,
+				FAD1AC0B1E73E50C00F86806 /* BackView.swift in Sources */,
 				FA55E3681E2C08B90004D3EA /* ServiceTableViewCell.swift in Sources */,
 				FAB042AF1E322B5A00A8FEF9 /* LocationTableViewCell.swift in Sources */,
+				FAD1AC091E71B71000F86806 /* TestViewController.swift in Sources */,
 				FA1102AD1E28C72C00E27B77 /* User.swift in Sources */,
 				FA699FFE1E3156E600CB3FAF /* Payment.swift in Sources */,
 				FA07EE0C1D788BEA00CD6FB0 /* Order.swift in Sources */,
 				FA1102AF1E290DB100E27B77 /* MenuItem.swift in Sources */,
+				FA50BF3F1E91E7A4006BCEB8 /* ForgotPasswordViewController.swift in Sources */,
 				FA07EDF71D788A9300CD6FB0 /* AppDelegate.swift in Sources */,
 				FA55E3631E2C040C0004D3EA /* OrderSubmitViewController.swift in Sources */,
 				FA07EE251D788EFA00CD6FB0 /* Constants.swift in Sources */,
@@ -579,20 +627,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: KOTESWARA MADIKANTI (5D554DDJX4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: KOTESWARA MADIKANTI (5D554DDJX4)";
-				DEVELOPMENT_TEAM = 365RUM9J74;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alfred Thekkan (ARE5QUW5X5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alfred Thekkan (ARE5QUW5X5)";
+				DEVELOPMENT_TEAM = XSTQG9NP3Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/feds/Frameworks",
 				);
 				INFOPLIST_FILE = feds/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shipnow.feds;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alfred.feds.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a6a807e9-1de4-4968-a10f-21a51e473782";
-				PROVISIONING_PROFILE_SPECIFIER = "Feds User";
+				PROVISIONING_PROFILE = "d5fb98d5-57ea-4ed3-9bdb-516b8e6f1f50";
+				PROVISIONING_PROFILE_SPECIFIER = "Feds Development";
 				SWIFT_OBJC_BRIDGING_HEADER = feds/Others/abc.h;
 				SWIFT_VERSION = 3.0;
 			};
@@ -604,20 +652,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: KOTESWARA MADIKANTI (5D554DDJX4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: KOTESWARA MADIKANTI (365RUM9J74)";
-				DEVELOPMENT_TEAM = 365RUM9J74;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Alfred Thekkan (XSTQG9NP3Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Alfred Thekkan (XSTQG9NP3Y)";
+				DEVELOPMENT_TEAM = XSTQG9NP3Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/feds/Frameworks",
 				);
 				INFOPLIST_FILE = feds/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.shipnow.feds;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alfred.feds.customer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7bbc689c-406e-4c05-986d-aaf87e2c56cc";
-				PROVISIONING_PROFILE_SPECIFIER = "Feds App Store";
+				PROVISIONING_PROFILE = "35802637-a787-486c-a5d0-1a4189547036";
+				PROVISIONING_PROFILE_SPECIFIER = "Feds Customer App Store Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = feds/Others/abc.h;
 				SWIFT_VERSION = 3.0;
 			};

@@ -17,12 +17,15 @@ class DeliveryAddress {
     var address:String?
     var floor = "Temp Floor"
     var building = "Temp Building"
-    var coordinate: CLLocationCoordinate2D!{
+    var coordinate: CLLocationCoordinate2D?{
         get{
-            return CLLocationCoordinate2D(latitude: Double(_latitude)!, longitude: Double(_longitude)!)
+            if _latitude != "", _longitude != "" {
+                    return CLLocationCoordinate2D(latitude: Double(_latitude)!, longitude: Double(_longitude)!)
+            }
+            return nil
         }set{
-            _latitude = "\(newValue.latitude)"
-            _longitude = "\(newValue.longitude)"
+            _latitude = "\(newValue!.latitude)"
+            _longitude = "\(newValue!.longitude)"
         }
     }
     
@@ -69,8 +72,8 @@ extension DeliveryAddress: Mappable {
 //MARK: - API Calls
 extension DeliveryAddress {
     func getDistance(fromAddress: DeliveryAddress, completionHandler: @escaping ((_ distance: Distance?, _ error: Error?) -> ())) {
-        let source      = "\(fromAddress.coordinate.latitude),\(fromAddress.coordinate.longitude)"
-        let destination = "\(self.coordinate.latitude),\(self.coordinate.longitude)"
+        let source      = "\(fromAddress.coordinate!.latitude),\(fromAddress.coordinate!.longitude)"
+        let destination = "\(self.coordinate!.latitude),\(self.coordinate!.longitude)"
         let apiKey      = "AIzaSyDS_2FBWDUP259-moM4etKEfJFe0jpd4fY"
         let apiPath     = "https://maps.googleapis.com/maps/api/distancematrix/json"
         let urlString   = apiPath + "?origins=" + source + "&destinations=" + destination + "&key=" + apiKey

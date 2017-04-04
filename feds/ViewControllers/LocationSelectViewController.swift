@@ -29,6 +29,14 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
         _addBarbuttons()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if type == .source {
+            navigationItem.title = "PICKUP FROM"
+        }else {
+            navigationItem.title = "DELIVER TO"
+        }
+    }
     //MARK: - User Interaction
     @IBAction func mapTypeSegmentButtonValueChanged(_ sender: UISegmentedControl) {
         mapView.mapType = [kGMSTypeSatellite, kGMSTypeNormal][sender.selectedSegmentIndex]
@@ -144,7 +152,7 @@ extension LocationSelectViewController :GMSAutocompleteViewControllerDelegate {
         
     }
     public func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        
+        viewController.dismiss(animated: true, completion: nil)
     }
 }
 

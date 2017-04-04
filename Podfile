@@ -2,28 +2,18 @@
 # platform :ios, '9.0'
 
 target 'feds' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for feds
 
 use_frameworks!
 
 
 
-
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.1'
-pod 'GoogleMaps'
-
-source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+platform :ios, '9.0'
 pod 'Alamofire', '~> 4.0'
 pod 'AlamofireObjectMapper', '~> 4.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
-use_frameworks!
 
 pod 'Eureka', '~> 2.0.0-beta.1'
 pod "PromiseKit", "~> 4.0"
@@ -32,6 +22,11 @@ pod "PromiseKit/UIKit", "~> 4.0"
 
 # progress indicators
 pod "KRProgressHUD"
+
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+
+pod 'GoogleMaps'
 
 end
 

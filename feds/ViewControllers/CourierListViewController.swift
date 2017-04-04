@@ -29,8 +29,13 @@ class CourierListViewController: UIViewController {
         Order.fetch(completionHandler: {[weak self] orders, error in
             KRProgressHUD.dismiss()
             if orders != nil {
-                self?.orderArray = orders!.reversed()
-                self?.tableView.reloadData()
+                if orders!.count > 0  {
+                    self?.orderArray = orders!.reversed()
+                    self?.tableView.reloadData()
+                }else{
+                    self?.show(title: "Information", message: "No Orders Found!")
+                }
+                
             }
         })
     }

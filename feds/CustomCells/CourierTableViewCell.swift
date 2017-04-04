@@ -33,16 +33,7 @@ class CourierTableViewCell: UITableViewCell {
         }
         
         let im = accessoryView as! UIImageView
-        switch order.service {
-        case .bike:
-            im.image = UIImage(named: "bike_service")
-        case .car :
-            im.image = UIImage(named: "car_service")
-        case .van:
-            im.image = UIImage(named: "truck_service")
-        default:
-            print("unknown choice")
-        }
+        im.image = order.service.image
     }
     
     //MARK: - Private Methods

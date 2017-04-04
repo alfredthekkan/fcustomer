@@ -10,88 +10,64 @@ import UIKit
 import ObjectMapper
 import Alamofire
 import KRProgressHUD
+import Eureka
 
-class RegisterViewController: UIViewController {
-    
-    @IBOutlet weak var txtName:UITextField!
-    @IBOutlet weak var txtpassword:UITextField!
-    @IBOutlet weak var txtEmail:UITextField!
-    @IBOutlet weak var txtPhoneNumber:UITextField!
-    
-    @IBOutlet weak var btnRegister:UIButton!
-    @IBOutlet weak var btnNeedHelp:UIButton!
-    
-    @IBOutlet weak var lblName:UILabel!
-    @IBOutlet weak var lblEmail:UILabel!
-    @IBOutlet weak var lblPassword:UILabel!
-    @IBOutlet weak var lblPhoneNumber:UILabel!
-    
-    @IBOutlet weak var navBar:UINavigationBar!
-    @IBOutlet weak var scrollView:UIScrollView!
-    
+class RegisterViewController: FormViewController {
     
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        customizeUI()
-        addBarButton()
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        setupForm()
+        
+        title = "REGISTER"
     }
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
+
+    func setupForm() {
+        tableView?.separatorStyle = .none
+        form +++ Section()
+            <<< FDTextRow("firstname") {
+                $0.title = "Name"
+                $0.placeHolder = "John Smith"
+            }
+            <<< FDTextRow("password") {
+                $0.title = "Password"
+                $0.placeHolder = "●●●●"
+            }
+            <<< FDTextRow("confirmPassword") {
+                $0.title = "Confirm Password"
+                $0.placeHolder = "●●●●"
+                if let passwordRow = form.rowBy(tag: "password") as? FDTextRow {
+                    $0.add(rule: RuleEqual(row: passwordRow))
+                }
+            }
+            <<< FDTextRow("email") {
+                $0.title = "Email"
+                $0.placeHolder = "john@xyz.com"
+            }
+            <<< FDTextRow("mobile") {
+                $0.title = "Phone Number"
+                $0.placeHolder = "05xxxxxxxx"
+            }
+            <<< FDTextRow("lastname") {
+                $0.title = "Name"
+                $0.placeHolder = "John Smith"
+                $0.value = "xxx"
+                $0.hidden = true
+        }
+            <<< FDButtonRow () {
+                $0.value = "Register"
+                $0.action = { self.next() }
+        }
     }
     
-    //MARK: - Private Methods
-    private func customizeUI(){
-        btnRegister.backgroundColor = GlobalConstants.THEME_COLOR
-        lblName.textColor = GlobalConstants.THEME_COLOR
-        lblEmail.textColor = GlobalConstants.THEME_COLOR
-        lblPassword.textColor = GlobalConstants.THEME_COLOR
-        lblPhoneNumber.textColor = GlobalConstants.THEME_COLOR
-        navBar.barTintColor = GlobalConstants.THEME_COLOR
-        navBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-        view.backgroundColor = GlobalConstants.THEME_COLOR
-        setNeedsStatusBarAppearanceUpdate()
-    }
-    private func addBarButton() {
-        let backButton = UIBarButtonItem(title: "<", style: .plain, target: self, action: #selector(RegisterViewController.backButtonTapped(_:)))
-        backButton.tintColor = UIColor.white
-        navBar.pushItem(navigationItem, animated: false)
-        navigationItem.title = "REGISTER"
-        navigationItem.leftBarButtonItem = backButton
-    }
-    func keyboardWillShow(_ notification:Notification){
-        var userInfo = notification.userInfo!
-        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        var contentInset:UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height + 90
-        self.scrollView.contentInset = contentInset
-    }
-    func keyboardWillHide(_ notification:Notification){
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
-        self.scrollView.contentInset = contentInset
-    }
     
-    
-    //MARK: - User Interaction
-    @IBAction func backButtonTapped(_ sender:AnyObject) {
-        dismiss(animated: true, completion: nil)
-    }
-    @IBAction func registerTapped(_ sender:AnyObject) {
-        view.endEditing(true)
-        let username = txtName.text
-        let password = txtpassword.text
-        let email = txtEmail.text
-        let phoneNumber = txtPhoneNumber.text
-        //:{"firstname":"kotesh","lastname":"madikanti","mobile":"9848868560","email":"kotesh@gmail.com"}
-        let inputDict = NSDictionary(objects: [username!,password!,email!,phoneNumber!,"test last name"], forKeys: ["firstname" as NSCopying,"password" as NSCopying,"email" as NSCopying,"mobile" as NSCopying,"lastname" as NSCopying])
+    func next() {
+        let input = form.unwrappedValues()
         KRProgressHUD.show()
-        User.create(inputDict as! Parameters).responseJSON(completionHandler: {[weak self] response in
+        User.create(input).responseJSON(completionHandler: {[weak self] response in
             KRProgressHUD.dismiss()
             if let error = response.result.error {
-                print(error.localizedDescription)
+                self?.show(error: error)
                 return
             }
             //HomeSegue
@@ -100,38 +76,39 @@ class RegisterViewController: UIViewController {
     }
 }
 
-extension RegisterViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == txtName {
-            txtpassword.becomeFirstResponder()
-        }else if textField == txtpassword {
-            txtEmail.becomeFirstResponder()
-        }else if textField == txtEmail {
-            txtPhoneNumber.becomeFirstResponder()
-        }else if textField == txtPhoneNumber {
-            textField.resignFirstResponder()
-        }
-        return true
+protocol AlertRepresentable {
+    func show(error: Error)
+    func show(message: String)
+}
+
+extension AlertRepresentable where Self: UIViewController {
+    func show(error: Error) {
+        let alert = UIAlertController(title: "Error", message: (error as NSError).domain, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
     }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        if textField == txtEmail {
-            if let x = textField.text {
-                textField.showValidation(x.isValidEmail())
-            }
-        }else if textField == txtPhoneNumber {
-            func validate(_ value: String) -> Bool {
-                let PHONE_REGEX = "^0\\d{9}$"
-                let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
-                let result =  phoneTest.evaluate(with: value)
-                return result
-            }
-            
-            if let x = textField.text {
-                textField.showValidation(validate(x))
-            }else {
-                textField.showValidation(false)
-            }
-        }
+    
+    func show(message: String) {
+        let alert = UIAlertController(title: "Feds", message: title, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        present(alert, animated: true, completion: nil)
     }
 }
+
+extension UIViewController: AlertRepresentable {}
+extension Form {
+    public func unwrappedValues(_ includeHidden: Bool = true) -> [String: Any]{
+        let wrapped = self.values(includeHidden: includeHidden)
+        
+        var unwrapped = [String:Any]()
+        
+        for (k,v) in wrapped {
+            unwrapped[k] = v ?? nil
+        }
+        
+        return unwrapped
+    }}

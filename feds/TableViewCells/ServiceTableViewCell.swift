@@ -16,6 +16,10 @@ final class ServiceTableViewCell: Cell<Service>, CellType{
     @IBOutlet weak var serviceImageView :UIImageView!
     @IBOutlet weak var roundView        :UIView!
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        update()
+    }
     required init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }

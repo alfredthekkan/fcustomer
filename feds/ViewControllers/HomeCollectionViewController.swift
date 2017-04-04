@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FBSDKLoginKit
 
 class HomeCollectionViewController: UIViewController {
     private let BLUR_IMAGE_TAG = 111
@@ -30,13 +30,14 @@ class HomeCollectionViewController: UIViewController {
         im.image = UIImage(named: "pattern")
         im.contentMode = .scaleAspectFill
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:GlobalConstants.THEME_COLOR]
-        title = "FEDS"
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.title = "FEDS"
         navigationController?.navigationBar.tintColor = GlobalConstants.THEME_COLOR
     }
-    
+
     // MARK: - Private Methods
     private func configureLayout() {
         let MINIMUM_INTERCELL_SPACING:CGFloat = 10
@@ -57,6 +58,8 @@ class HomeCollectionViewController: UIViewController {
     //MARK: - User Interaction
     @IBAction func logoutTapped(_ sender:AnyObject) {
         User.current.logout().response(completionHandler: {[weak self] response in
+            Session.delete()
+            FBSDKLoginManager().logOut()
             let loginVC = self?.storyboard?.instantiateInitialViewController()
             self?.view.window?.rootViewController = loginVC
         })
