@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
+import PromiseKit
+import CoreLocation
 
 final class Order {
     
@@ -47,7 +49,7 @@ final class Order {
     }
     var mobile          :String?
     var orderDateTime   :String?
-    var orderPk         :String?
+    var orderPk         :Double?
     var orderTokenId    :String?
     var price           :Double?
     var status          :String?
@@ -100,6 +102,26 @@ extension Order {
             completionHandler(response.result.value!, nil)
         }
     }
+    
+    func update() -> Promise<CLLocationCoordinate2D> {
+        let (promise, fulfill, reject) = Promise<CLLocationCoordinate2D>.pending()
+        
+        let URL = API.Url!.appendingPathComponent("getorders")
+        let params: [String: Any] = ["accessToken":User.current.accessToken!, "order_pk": orderPk!]
+        SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).validateErrors().responseArray(keyPath: "data") {(response : DataResponse<[Order]>) in
+            if let error = response.result.error {
+                reject(error)
+                return
+            }
+            if let location = response.result.value?.first?.driver?.location {
+                fulfill(location)
+            }else {
+                reject(NSError(domain: "NSErrorDomainLocationUnavailable", code: 555, userInfo: nil))
+            }
+        }
+        return promise
+    }
+    
     @discardableResult
     func submit() -> Alamofire.DataRequest {
         let URL = API.Url!.appendingPathComponent("requestorder")
