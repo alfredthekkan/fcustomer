@@ -98,7 +98,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pr_selected" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-j5-jf1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-j5-jf1">
                                 <rect key="frame" x="145" y="577" width="85" height="85"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -143,7 +143,4 @@
             <point key="canvasLocation" x="2241" y="824"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="pr_selected" width="16" height="16"/>
-    </resources>
 </document>

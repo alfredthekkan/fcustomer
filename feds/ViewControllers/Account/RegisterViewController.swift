@@ -116,7 +116,7 @@ extension AlertRepresentable where Self: UIViewController {
     }
     
     func show(message: String) {
-        let alert = UIAlertController(title: "Feds", message: title, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Feds", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             alert.dismiss(animated: true, completion: nil)
         }))
@@ -129,13 +129,11 @@ extension UIViewController: AlertRepresentable {}
 extension Form {
     public func unwrappedValues(_ includeHidden: Bool = true) -> [String: Any]{
         let wrapped = self.values(includeHidden: includeHidden)
-        
         var unwrapped = [String:Any]()
-        
         for (k,v) in wrapped {
-            unwrapped[k] = v ?? nil
+            guard let value = v else { continue }
+            unwrapped[k] = value
         }
-        
         return unwrapped
     }
     

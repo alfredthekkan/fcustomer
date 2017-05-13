@@ -73,9 +73,10 @@ extension CourierListViewController: UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let x = self.storyboard?.instantiateViewController(withIdentifier: "DeliverTracking") as! TrackingViewController
-        let order = orderArray[indexPath.row]
+        let order = orderArray[indexPath.section]
         x.order = order
         navigationController?.pushViewController(x, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

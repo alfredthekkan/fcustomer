@@ -156,7 +156,7 @@ extension UIImageView {
     }
     
     func setImageUrl(_ imageUrl: String?) {
-        guard let url = imageUrl else { return }
+        guard let url = imageUrl?.replacingOccurrences(of: " ", with: "%20") else { return }
         Alamofire.request(url, method: .get).responseImage { response in
             guard let image = response.result.value else {
                 return

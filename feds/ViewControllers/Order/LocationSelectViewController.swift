@@ -16,6 +16,8 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
     @IBOutlet weak var mapTypeSegmentButton: UISegmentedControl!
     @IBOutlet weak var selectLocationButton:UIButton!
     @IBOutlet weak var currentLocationButton:UIButton!
+    @IBOutlet weak var homeLocationButton:UIButton!
+    @IBOutlet weak var workLocationButton:UIButton!
     var type : LocationType = .source
     
     var placePicker: GMSPlacePicker?
@@ -94,7 +96,46 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
         
         let address = DeliveryAddress(type: type)
         address.coordinate = coord
+        proceed(address)
+    }
+    
+    
+    @IBAction func chooseSavedLocationTapped(_ sender:UIButton) {
+        let alert = UIAlertController(title: "Choose a location", message: nil, preferredStyle: .actionSheet)
+        let work = UIAlertAction(title: "Work", style: .default) { _ in
+            guard let address = UserDefaults.standard.object(forKey: AddressViewController.AddessType.work.rawValue) as? [String: Any] else {
+                self.show(message: "Work Address Not Set")
+                return
+            }
+            guard let dlAddress = DeliveryAddress(address: address, type: self.type) else {
+                self.show(message: "Work Address Not Set")
+                return
+            }
+            self.proceed(dlAddress)
+        }
+        let home = UIAlertAction(title: "Home", style: .default) { _ in
+            guard let address = UserDefaults.standard.object(forKey: AddressViewController.AddessType.work.rawValue) as? [String: Any] else {
+                self.show(message: "Home Address Not Set")
+                return
+            }
+            guard let dlAddress = DeliveryAddress(address: address, type: self.type) else {
+                self.show(message: "Home Address Not Set")
+                return
+            }
+            self.proceed(dlAddress)
+        }
+        alert.addAction(work)
+        alert.addAction(home)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func workLocationTapped(_ sender:UIButton) {
         
+    }
+    
+    private func proceed(_ address: DeliveryAddress) {
         if type == .source {
             let viewcontroller = storyboard?.instantiateViewController(withIdentifier: "ToPointVC") as! LocationSelectViewController
             viewcontroller.type = .destination
@@ -131,7 +172,7 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
                                                   longitude: coordingate.longitude, zoom: 15)
             let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
             mapView.isMyLocationEnabled = true
-            mapView.mapType = kGMSTypeNormal
+            mapView.mapType = kGMSTypeSatellite
             mapView.delegate = self
             self.view.insertSubview(mapView, at: 0)
             self.mapView = mapView

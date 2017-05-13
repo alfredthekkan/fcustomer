@@ -23,9 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open:url, sourceApplication: sourceApplication, annotation: annotation)
         return handled
     }
-    class DeviceToken {
-        var tokenString: String?
-    }
 }
 // Notifications
 extension AppDelegate {
@@ -50,7 +47,17 @@ extension AppDelegate {
     }
 }
 
-extension AppDelegate.DeviceToken {
+class DeviceToken {
+    static var token: String?
+    var tokenString: String?  {
+        didSet {
+            DeviceToken.token = tokenString
+        }
+    }
+}
+
+
+extension DeviceToken {
     convenience init(_ data: Data) {
         self.init()
         tokenString = data.map { String(format: "%02.2hhx", $0) }.joined()

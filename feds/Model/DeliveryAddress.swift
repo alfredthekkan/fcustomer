@@ -37,6 +37,14 @@ class DeliveryAddress {
         self.type = type
     }
     
+    convenience init?(address: [String: Any]? , type: LocationType) {
+        guard let coordinate = CLLocation(address?["location"] as? String)?.coordinate else { return nil }
+        self.init(type: type)
+        self.coordinate = coordinate
+        self.building = address?["building"] as? String ?? ""
+        self.floor = address?["flat"] as? String ?? ""
+    }
+    
     class Distance{
         class GRow {
             var elements: [GElement]?

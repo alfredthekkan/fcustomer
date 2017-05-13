@@ -29,7 +29,9 @@ class Driver {
             }
         }
     }
-    required init?(map: Map) {}
+    required init?(map: Map) {
+        mapping(map: map)
+    }
     init() {}
 }
 

@@ -14,7 +14,7 @@ class ChangePasswordViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
-
+        self.title = "Change Password"
     }
     
     private func setupForm() {

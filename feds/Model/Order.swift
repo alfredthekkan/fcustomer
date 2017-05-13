@@ -104,7 +104,7 @@ extension Order {
     func submit() -> Alamofire.DataRequest {
         let URL = API.Url!.appendingPathComponent("requestorder")
         
-        let deviceID = UIDevice.current.identifierForVendor?.uuidString
+        let deviceID = DeviceToken.token
         var orderInfo = Order.current?.toJSON()
         let _ = orderInfo?.removeValue(forKey: "addresslist")
         var addresses:[Any]
@@ -113,20 +113,15 @@ extension Order {
         }else{
             addresses = [self.fromAddress!.toJSON()]
         }
-        
-        orderInfo?["user_device_id"] = deviceID   
+        orderInfo?["user_device_id"] = deviceID ?? "IDNotAvailable"
         orderInfo?["accessToken"] = User.current.accessToken
         orderInfo?["paymenttype"] = Order.current?.payment?.type?.rawValue
         orderInfo?["gatewaytoken"] = ""
         orderInfo?["product_pk"] = Order.current?.service.productId
-        
         let map = Map(mappingType: .toJSON, JSON: [:])
         addresses <- map["orderaddress"]
         orderInfo  <- map["userinfo"]
-
         let parameters = map.JSON
-        print(parameters)
-        
         return SessionManager.default.request(URL, method: .post, parameters: parameters, encoding : JSONEncoding.default).validateErrors().responseJSON(completionHandler: {response in
             if let _ = response.result.error { return }
             Order.current = nil

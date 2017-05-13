@@ -19,12 +19,12 @@ class SettingsViewController: FormViewController {
             <<< LabelRow() {
                 $0.title = "Home Address"
                 }.onCellSelection({ [weak self] (cell, row) in
-                    self?.showAddress(row)
+                    self?.showAddress(.home)
                 })
             <<< LabelRow() {
                 $0.title = "Office Address"
                 }.onCellSelection({ [weak self] (cell, row) in
-                    self?.showAddress(row)
+                    self?.showAddress(.work)
                 })
             <<< LabelRow() {
                 $0.title = "Change Password"
@@ -37,9 +37,9 @@ class SettingsViewController: FormViewController {
         navigationItem.title = "Settings"
     }
     
-    private func showAddress(_ row: LabelRow) {
-        guard let addressViewController = storyboard?.instantiateViewController(withIdentifier: AddressViewController.identifier) else { return }
-        addressViewController.title = row.title
+    private func showAddress(_ type: AddressViewController.AddessType) {
+        guard let addressViewController = storyboard?.instantiateViewController(withIdentifier: AddressViewController.identifier) as? AddressViewController  else { return }
+        addressViewController.type = type
         navigationController?.pushViewController(addressViewController, animated: true)
     }
     @IBAction func unwindToSettings(segue:UIStoryboardSegue) { }
