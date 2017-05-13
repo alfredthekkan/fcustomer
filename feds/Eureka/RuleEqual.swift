@@ -11,14 +11,27 @@ import Eureka
 
 class RuleEqual: RuleType {
     typealias RowValueType = String
-    func isValid(value: RowValueType?) -> ValidationError? {
-        return value == referenceRow.value ? nil : validationError
-    }
     var id: String?
     var validationError: ValidationError
-    var referenceRow: FDTextRow
-    init(row: FDTextRow) {
-        referenceRow = row
-        validationError = ValidationError(msg: "Fields not equal")
+    var form: Form!
+    var otherRowTag: String
+    
+    init(form: Form, msg: String = "Fields doesn't match", tag: String) {
+        otherRowTag = tag
+        validationError = ValidationError(msg: msg)
+        self.form = form
     }
+    
+    func isValid(value: RowValueType?) -> ValidationError? {
+        if let otherRowValue = form.rowBy(tag: otherRowTag)?.baseValue as? RowValueType {
+            if value == otherRowValue {
+                return nil
+            }else{
+                return validationError
+            }
+        }
+        return nil
+    }
+    
+
 }

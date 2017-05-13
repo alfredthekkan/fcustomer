@@ -50,7 +50,7 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
     }
     
     @IBAction func skipTapped(_ sender: Any) {
-        if let id = defaultStoryBoardIdentifier {
+        if let id = alternateStoryBoardIdentifier {
             performSegue(withIdentifier: id, sender: nil)
         }
     }
@@ -102,7 +102,7 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
             navigationController?.pushViewController(viewcontroller, animated: true)
         }else{
             Order.current?.toAddress = address
-            if let identifier = defaultStoryBoardIdentifier {
+            if let identifier = alternateStoryBoardIdentifier {
                 performSegue(withIdentifier: identifier, sender: nil)
             }
         }
@@ -146,9 +146,12 @@ class LocationSelectViewController: UIViewController,GMSMapViewDelegate {
 
 extension LocationSelectViewController :GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        
+        viewController.dismiss(animated: true) {
+            self.mapView.animate(toLocation: place.coordinate)
+        }
     }
     public func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        self.show(error: error)
         
     }
     public func wasCancelled(_ viewController: GMSAutocompleteViewController) {

@@ -33,6 +33,8 @@ class TextFieldTableViewCell: _FDTextFieldTableViewCell<String>, CellType {
         super.setup()
         selectionStyle = .none
         height = { 80 }
+        guard let row = self.row as? FDTextRow else { return }
+        textField.isSecureTextEntry = row.type == .secure
     }
     override func update() {
         super.update()
@@ -49,17 +51,30 @@ class TextFieldTableViewCell: _FDTextFieldTableViewCell<String>, CellType {
         line.backgroundColor = GlobalConstants.THEME_COLOR
     }
     
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let row = self.row as? FDTextRow else {
+            return true
+        }
+        row.value = textField.text != nil ? textField.text! + string : ""
+        return true
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         line.backgroundColor = GlobalConstants.THEME_COLOR_GREY
         guard let row = self.row as? FDTextRow else {
             return
         }
-        
         row.value = textField.text != nil ? textField.text : ""
     }
 }
 
 final class FDTextRow: Row<TextFieldTableViewCell>, RowType {
+    enum `Type` {
+        case normal
+        case secure
+    }
+    var type: Type = .normal
     var placeHolder : String?
     required init(tag: String?) {
         super.init(tag: tag)

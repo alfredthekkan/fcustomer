@@ -1,0 +1,96 @@
+
+/* Class = "UILabel"; text = "or"; ObjectID = "1gC-YA-5ay"; */
+"1gC-YA-5ay.text" = "or";
+
+/* Class = "UIButton"; normalTitle = "Need Help ?"; ObjectID = "1nv-eb-I6E"; */
+"1nv-eb-I6E.normalTitle" = "Need Help ?";
+
+/* Class = "UILabel"; text = "45.00 AED"; ObjectID = "35b-b9-E24"; */
+"35b-b9-E24.text" = "45.00 AED";
+
+/* Class = "UITextView"; text = "www.feds4u.ae"; ObjectID = "6XR-Ze-mCP"; */
+"6XR-Ze-mCP.text" = "www.feds4u.ae";
+
+/* Class = "UITextField"; placeholder = "Mon@2016"; ObjectID = "6hJ-7e-6M3"; */
+"6hJ-7e-6M3.placeholder" = "Mon@2016";
+
+/* Class = "UILabel"; text = "DELIVERY - Abu Dhabi, Khalidiya"; ObjectID = "6yf-XE-Uh4"; */
+"6yf-XE-Uh4.text" = "DELIVERY - Abu Dhabi, Khalidiya";
+
+/* Class = "UIButton"; normalTitle = "Card"; ObjectID = "85p-dx-gfO"; */
+"85p-dx-gfO.normalTitle" = "Card";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "8MB-Te-0Mp"; */
+"8MB-Te-0Mp.text" = "Email";
+
+/* Class = "UIButton"; normalTitle = "REGISTER"; ObjectID = "C66-Ff-rV7"; */
+"C66-Ff-rV7.normalTitle" = "REGISTER";
+
+/* Class = "UIButton"; normalTitle = "PICTURE"; ObjectID = "Cg1-Bg-I9r"; */
+"Cg1-Bg-I9r.normalTitle" = "PICTURE";
+
+/* Class = "UILabel"; text = "Call Us"; ObjectID = "Dwh-us-T9t"; */
+"Dwh-us-T9t.text" = "Call Us";
+
+/* Class = "UIButton"; normalTitle = "SKIP"; ObjectID = "Gd1-pA-bR1"; */
+"Gd1-pA-bR1.normalTitle" = "SKIP";
+
+/* Class = "UIButton"; normalTitle = "📞 Deliver"; ObjectID = "HEa-xB-2O3"; */
+"HEa-xB-2O3.normalTitle" = "📞 Deliver";
+
+/* Class = "UIBarButtonItem"; title = "العربية"; ObjectID = "Kh2-Qv-tHE"; */
+"Kh2-Qv-tHE.title" = "العربية";
+
+/* Class = "UIButton"; normalTitle = "👤 John"; ObjectID = "M1r-jd-Mgz"; */
+"M1r-jd-Mgz.normalTitle" = "👤 John";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "O4Z-2U-CGQ"; */
+"O4Z-2U-CGQ.text" = "Password";
+
+/* Class = "UIViewController"; title = "DELIVER TO"; ObjectID = "Tdr-qc-LY4"; */
+"Tdr-qc-LY4.title" = "DELIVER TO";
+
+/* Class = "UITextView"; text = "support@feds.ae"; ObjectID = "Tij-rR-4w3"; */
+"Tij-rR-4w3.text" = "support@feds.ae";
+
+/* Class = "UILabel"; text = "Email us"; ObjectID = "Z8b-8I-EjY"; */
+"Z8b-8I-EjY.text" = "Email us";
+
+/* Class = "UIButton"; normalTitle = "CONFIRM REQUEST"; ObjectID = "ZyL-ns-kHk"; */
+"ZyL-ns-kHk.normalTitle" = "CONFIRM REQUEST";
+
+/* Class = "UITextView"; text = "0563969006"; ObjectID = "fWw-6j-g0T"; */
+"fWw-6j-g0T.text" = "0563969006";
+
+/* Class = "UIButton"; normalTitle = "Forgot Password ?"; ObjectID = "h7h-Db-JjZ"; */
+"h7h-Db-JjZ.normalTitle" = "Forgot Password ?";
+
+/* Class = "UILabel"; text = "Visit Us"; ObjectID = "hXo-Ls-sNH"; */
+"hXo-Ls-sNH.text" = "Visit Us";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "iZ1-ll-yJi"; */
+"iZ1-ll-yJi.normalTitle" = "LOGIN";
+
+/* Class = "UISegmentedControl"; ky6-w4-w8J.segmentTitles[0] = "Satellite"; ObjectID = "ky6-w4-w8J"; */
+"ky6-w4-w8J.segmentTitles[0]" = "Satellite";
+
+/* Class = "UISegmentedControl"; ky6-w4-w8J.segmentTitles[1] = "Normal"; ObjectID = "ky6-w4-w8J"; */
+"ky6-w4-w8J.segmentTitles[1]" = "Normal";
+
+/* Class = "UITextField"; placeholder = "john.smith@abc.com"; ObjectID = "lAl-R3-i0v"; */
+"lAl-R3-i0v.placeholder" = "john.smith@abc.com";
+
+/* Class = "UISegmentedControl"; oTv-cW-mbT.segmentTitles[0] = "Satellite"; ObjectID = "oTv-cW-mbT"; */
+"oTv-cW-mbT.segmentTitles[0]" = "Satellite";
+
+/* Class = "UISegmentedControl"; oTv-cW-mbT.segmentTitles[1] = "Normal"; ObjectID = "oTv-cW-mbT"; */
+"oTv-cW-mbT.segmentTitles[1]" = "Normal";
+
+/* Class = "UIViewController"; title = "PICKUP FROM"; ObjectID = "sri-o3-xcY"; */
+"sri-o3-xcY.title" = "PICKUP FROM";
+
+/* Class = "UIButton"; normalTitle = "Cash"; ObjectID = "uhb-nb-cS0"; */
+"uhb-nb-cS0.normalTitle" = "Cash";
+
+/* Class = "UILabel"; text = "PRICE - 05 AED"; ObjectID = "wY2-vV-QnR"; */
+"wY2-vV-QnR.text" = "PRICE - 05 AED";

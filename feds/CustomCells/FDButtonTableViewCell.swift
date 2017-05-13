@@ -14,6 +14,14 @@ class FDButtonTableViewCell: Cell<String>, CellType {
     
     @IBOutlet weak var button: UIButton!
     
+    required init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func setup() {
         super.setup()
         selectionStyle = .none
@@ -36,6 +44,6 @@ final class FDButtonRow: Row<FDButtonTableViewCell>, RowType {
     var action: (() -> ())?
     required init(tag: String?) {
         super.init(tag: tag)
-        cellProvider = CellProvider<FDButtonTableViewCell>(nibName: "FDButtonTableViewCell")
+        cellProvider = CellProvider<FDButtonTableViewCell>(nibName: FDButtonTableViewCell.identifier)
     }
 }

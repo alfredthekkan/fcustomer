@@ -4,16 +4,16 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="feds" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -48,9 +48,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="F0W-7p-4p1"/>
-                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="env-nd-kLa">
                                                 <rect key="frame" x="50" y="246" width="283" height="3"/>
@@ -72,9 +69,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Poe-vx-fHY"/>
-                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WiR-cL-ox1">
                                                 <rect key="frame" x="50" y="341" width="283" height="3"/>
@@ -178,16 +172,6 @@
                     <navigationItem key="navigationItem" id="LWO-UA-mWG"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="btnForgot" destination="h7h-Db-JjZ" id="tz1-3C-hhf"/>
-                        <outlet property="btnLogin" destination="iZ1-ll-yJi" id="14Y-v4-PJ9"/>
-                        <outlet property="btnRegister" destination="C66-Ff-rV7" id="B7e-i9-GBe"/>
-                        <outlet property="contentView" destination="xHL-hq-gMZ" id="HEY-eW-Tba"/>
-                        <outlet property="lblEmail" destination="8MB-Te-0Mp" id="G7V-kN-j6K"/>
-                        <outlet property="lblOr" destination="1gC-YA-5ay" id="DL0-AA-Sh1"/>
-                        <outlet property="lblPassword" destination="O4Z-2U-CGQ" id="OnD-yi-mUc"/>
-                        <outlet property="scrollView" destination="vVE-iZ-Ba8" id="JD0-Lh-urE"/>
-                        <outlet property="txtPassword" destination="6hJ-7e-6M3" id="U7x-qN-zRU"/>
-                        <outlet property="txtUsername" destination="lAl-R3-i0v" id="Otg-vF-1Wf"/>
                         <segue destination="VcI-Vr-PRf" kind="show" id="XQX-kH-xKj"/>
                     </connections>
                 </viewController>
@@ -297,11 +281,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="cPT-ur-QMX">
                         <barButtonItem key="leftBarButtonItem" title="العربية" id="Kh2-Qv-tHE"/>
-                        <barButtonItem key="rightBarButtonItem" image="logout" id="0ws-gE-PJT">
-                            <connections>
-                                <action selector="logoutTapped:" destination="cIg-8V-8a4" id="el8-f8-3Jr"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="logout" id="0ws-gE-PJT">
+                                <connections>
+                                    <action selector="logoutTapped:" destination="cIg-8V-8a4" id="el8-f8-3Jr"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="settings" id="VhM-Qb-dvM">
+                                <connections>
+                                    <action selector="settingsTapped:" destination="cIg-8V-8a4" id="KBk-PS-sUq"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="oct-Dx-kzF" id="8pQ-ey-I7R"/>
@@ -341,7 +332,7 @@
                                             <rect key="frame" x="10" y="0.0" width="355" height="77"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45.00 AED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35b-b9-E24">
-                                                    <rect key="frame" x="0.0" y="28.5" width="115" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="28" width="115" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -350,7 +341,7 @@
                                                     <rect key="frame" x="120" y="4" width="115" height="69"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cg1-Bg-I9r">
-                                                    <rect key="frame" x="240" y="23.5" width="115" height="30"/>
+                                                    <rect key="frame" x="240" y="24" width="115" height="30"/>
                                                     <color key="backgroundColor" red="0.57647058823529407" green="0.57647058823529407" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="PICTURE">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -664,7 +655,7 @@
             <objects>
                 <navigationController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="VcI-Vr-PRf" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bGP-KA-t82">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bGP-KA-t82">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -676,6 +667,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gJ-A2-5B2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1032.8" y="61.619190404797607"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="0qc-93-yTL">
+            <objects>
+                <viewController id="DOp-tX-Pfr" customClass="LoginViewController" customModule="feds" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e3K-Gq-2Mm"/>
+                        <viewControllerLayoutGuide type="bottom" id="2ms-fN-cuH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ukK-03-nkV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPv-hN-dU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="453" y="1538"/>
         </scene>
         <!--Tracking View Controller-->
         <scene sceneID="VyD-tV-FvF">
@@ -752,7 +761,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w4O-iI-uUC" id="wX1-MA-2cs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELIVERY - Abu Dhabi, Khalidiya" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yf-XE-Uh4">
@@ -943,7 +952,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cZD-ef-BbY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2bd-65-fan" customClass="FDNavigationBar" customModule="feds" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2bd-65-fan" customClass="FDNavigationBar" customModule="feds" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -961,15 +970,16 @@
         <image name="DeliverHereRound" width="83" height="83"/>
         <image name="DeliverHereRoundSelected" width="83" height="83"/>
         <image name="deliverTo" width="46" height="63"/>
-        <image name="logo_background" width="212" height="134"/>
+        <image name="logo_background" width="213" height="134"/>
         <image name="logout" width="16" height="16"/>
         <image name="pattern" width="389" height="275"/>
         <image name="pickFromHere" width="40" height="57"/>
         <image name="pickFromHereRound" width="83" height="83"/>
         <image name="pickFromHereRoundSelected" width="83" height="83"/>
         <image name="pr_selected" width="177" height="193"/>
+        <image name="settings" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2KQ-Vw-eId"/>
+        <segue reference="XQX-kH-xKj"/>
     </inferredMetricsTieBreakers>
 </document>

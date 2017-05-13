@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.2.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
   - AlamofireObjectMapper (4.0.1):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 2.0)
@@ -23,6 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - AlamofireImage (~> 3.1)
   - AlamofireObjectMapper (~> 4.0)
   - Eureka (~> 2.0.0-beta.1)
   - GoogleMaps
@@ -33,6 +36,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   AlamofireObjectMapper: 842d2eed43a4d0593ff0110d54ac86a170c4519c
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
@@ -40,6 +44,6 @@ SPEC CHECKSUMS:
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   PromiseKit: 56baec63efa89210c023260879435a5a6b3bff00
 
-PODFILE CHECKSUM: 14607efedec9fdeee6973b3bf1cf392e8ff5c551
+PODFILE CHECKSUM: ef7018cd9611ad3badaa8156395b4897398f8bc5
 
 COCOAPODS: 1.0.1

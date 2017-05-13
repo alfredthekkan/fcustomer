@@ -77,7 +77,10 @@ extension User {
         }
         
         return SessionManager.default.request(URL, method: .post, parameters: params, encoding : JSONEncoding.default).validateErrors().responseObject(keyPath: "data") {(response : DataResponse<User>) in
-            User.current = response.result.value}
+            if response.result.error != nil { return }
+            User.current = response.result.value
+            User.isAuthorized = true
+        }
     }
     
     static func forgotPassword(_ input: [String: Any]) -> Alamofire.DataRequest {
@@ -118,8 +121,13 @@ extension User {
 extension Alamofire.DataRequest{
     func validateErrors() -> Self {
         return validate{ _, response, data in
-            
             if response.statusCode == 200 {
+                if let data = data {
+                    let str = String(data: data, encoding: .utf8)
+                    print(str)
+                }else {
+                    print("Data is nil")
+                }
                 return .success
             }else{
                 var msg:String? = ""
@@ -136,6 +144,7 @@ extension Alamofire.DataRequest{
                     msg = "Response is empty"
                 }
                 let error = NSError(domain: msg!, code: response.statusCode, userInfo: nil)
+                print(error)
                 return .failure(error)
             }
         }.debugLog()

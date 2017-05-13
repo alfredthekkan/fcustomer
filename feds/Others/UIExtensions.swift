@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 extension UIView {
     
@@ -34,15 +36,6 @@ extension UIView {
         lbl.layer.shadowOffset = CGSize(width: 5, height: 5)
         
         addSubview(lbl)
-//        UIView.animateWithDuration(3.0, animations: {
-//            
-//            lbl.alpha = 0
-//            
-//            }, completion: { animated in
-//                
-//                lbl.removeFromSuperview()
-//        })
-        
         UIView.animate(withDuration: 0.5, delay: 3.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             
             lbl.alpha = 0
@@ -150,9 +143,6 @@ extension UIImageView {
     
     func makeRoundCorder() {
         self.layer.cornerRadius = self.frame.size.width / 2;
-        //self.layer.borderWidth = 1.0
-        //self.layer.borderColor = UIColor.lightGrayColor().CGColor
-        
         self.clipsToBounds = true
     }
     
@@ -163,6 +153,16 @@ extension UIImageView {
         self.layer.shadowRadius = 3
         self.layer.cornerRadius = 5
         
+    }
+    
+    func setImageUrl(_ imageUrl: String?) {
+        guard let url = imageUrl else { return }
+        Alamofire.request(url, method: .get).responseImage { response in
+            guard let image = response.result.value else {
+                return
+            }
+            self.image = image
+        }
     }
     
 }
@@ -176,6 +176,15 @@ extension UIViewController {
         }
     return nil
     }
+    var alternateStoryBoardIdentifier: String? {
+        if let templates = value(forKey: "storyboardSegueTemplates") as! [AnyObject]? {
+            if let id = templates.second?.value(forKey: "identifier") as? String {
+                return id
+            }
+        }
+        return nil
+    }
+    
     
     func show(title: String, message: String, completionHandler: (() -> ())? = nil ) {
         MTPopUp(frame: self.view.frame).show(complete: { (index) in
@@ -189,3 +198,17 @@ extension UIViewController {
                                              strTitle: title)
     }
 }
+
+extension Array {
+    var second: Element? {
+        guard self.count >= 2 else { return nil }
+        return self[1]
+    }
+    var lastButOne: Element? {
+        guard self.count >= 2 else {
+            return nil
+        }
+        return self[self.count - 1]
+    }
+}
+

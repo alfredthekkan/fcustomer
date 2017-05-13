@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKLoginKit
+import KRProgressHUD
 
 class HomeCollectionViewController: UIViewController {
     private let BLUR_IMAGE_TAG = 111
@@ -20,6 +21,10 @@ class HomeCollectionViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    @IBAction func settingsTapped(_ sender: Any) {
+        guard let settingsVc = UIStoryboard.settings.instantiateInitialViewController() else { return }
+        navigationController?.pushViewController(settingsVc, animated: true)
+    }
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +62,15 @@ class HomeCollectionViewController: UIViewController {
     
     //MARK: - User Interaction
     @IBAction func logoutTapped(_ sender:AnyObject) {
-        User.current.logout().response(completionHandler: {[weak self] response in
+        KRProgressHUD.show()
+        User.current.logout().response(completionHandler: { response in
+            KRProgressHUD.dismiss()
             Session.delete()
             FBSDKLoginManager().logOut()
-            let loginVC = self?.storyboard?.instantiateInitialViewController()
-            self?.view.window?.rootViewController = loginVC
+            User.isAuthorized = false
+            guard let loginVc = UIStoryboard.account.instantiateInitialViewController() else { return }
+            Router.shared.setRootViewcontroller(loginVc)
+            
         })
     }
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {}
@@ -140,9 +149,11 @@ extension HomeCollectionViewController:UICollectionViewDelegate{
         }
         switch item.type {
         case .newOrder:
-            performSegue(withIdentifier: "newOrder", sender: nil)
+            guard let viewcontroller = UIStoryboard.order.instantiateInitialViewController() else { return }
+            navigationController?.pushViewController(viewcontroller, animated: true)
         case .trackOrder:
-            performSegue(withIdentifier: "courierList", sender: nil)
+            guard let viewcontroller = UIStoryboard.tracking.instantiateInitialViewController() else { return }
+            navigationController?.pushViewController(viewcontroller, animated: true)
         case .contact:
             performSegue(withIdentifier: "contactSegue", sender: nil)
         default:
@@ -150,3 +161,5 @@ extension HomeCollectionViewController:UICollectionViewDelegate{
         }
     }
 }
+
+

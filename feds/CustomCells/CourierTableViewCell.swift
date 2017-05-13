@@ -31,7 +31,16 @@ class CourierTableViewCell: UITableViewCell {
         if let source = order.fromAddress?.address, let destination = order.toAddress?.address {
             lblLocationName.text = "DELIVERY - \(source) - \(destination)"
         }
-        
+        if let status = order.orderStatus {
+            switch status {
+                case .pending:
+                    backgroundColor = .brown
+                case .assigned:
+                    backgroundColor = .orange
+                case .ongoing:
+                    backgroundColor = .green
+            }
+        }
         let im = accessoryView as! UIImageView
         im.image = order.service.image
     }

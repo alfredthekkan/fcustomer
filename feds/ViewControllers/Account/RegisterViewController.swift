@@ -18,8 +18,9 @@ class RegisterViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
-        
+        navigationController?.setNavigationBarHidden(false, animated: true)
         title = "REGISTER"
+        navigationItem.rightBarButtonItem = self.cancelButton()
     }
 
     func setupForm() {
@@ -28,25 +29,42 @@ class RegisterViewController: FormViewController {
             <<< FDTextRow("firstname") {
                 $0.title = "Name"
                 $0.placeHolder = "John Smith"
+                var rule = RuleRequired<String>()
+                rule.validationError = ValidationError(msg: "Name missing")
+                $0.add(rule: rule)
             }
             <<< FDTextRow("password") {
+                $0.type = .secure
                 $0.title = "Password"
                 $0.placeHolder = "●●●●"
+                var rule = RuleRequired<String>()
+                rule.validationError = ValidationError(msg: "Password missing")
+                $0.add(rule: rule)
             }
             <<< FDTextRow("confirmPassword") {
+                $0.type = .secure
                 $0.title = "Confirm Password"
                 $0.placeHolder = "●●●●"
-                if let passwordRow = form.rowBy(tag: "password") as? FDTextRow {
-                    $0.add(rule: RuleEqual(row: passwordRow))
-                }
+                
+                var rule = RuleRequired<String>()
+                rule.validationError = ValidationError(msg: "Confirm password missing")
+                $0.add(rule: rule)
+                $0.add(rule: RuleEqual(form: self.form, msg: "Password mismatch", tag: "password"))
             }
             <<< FDTextRow("email") {
                 $0.title = "Email"
                 $0.placeHolder = "john@xyz.com"
+                $0.add(rule: RuleEmail())
+                var rule = RuleRequired<String>()
+                rule.validationError = ValidationError(msg: "Email missing")
+                $0.add(rule: rule)
             }
             <<< FDTextRow("mobile") {
                 $0.title = "Phone Number"
                 $0.placeHolder = "05xxxxxxxx"
+                var rule = RuleRequired<String>()
+                rule.validationError = ValidationError(msg: "Mobile missing")
+                $0.add(rule: rule)
             }
             <<< FDTextRow("lastname") {
                 $0.title = "Name"
@@ -62,17 +80,24 @@ class RegisterViewController: FormViewController {
     
     
     func next() {
-        let input = form.unwrappedValues()
-        KRProgressHUD.show()
-        User.create(input).responseJSON(completionHandler: {[weak self] response in
-            KRProgressHUD.dismiss()
-            if let error = response.result.error {
-                self?.show(error: error)
-                return
+        if self.form.isValid {
+            let input = form.unwrappedValues()
+            KRProgressHUD.show()
+            User.create(input).responseJSON(completionHandler: {[weak self] response in
+                KRProgressHUD.dismiss()
+                if let error = response.result.error {
+                    self?.show(error: error)
+                    return
+                }
+                User.isAuthorized = true
+                guard let homeVC = UIStoryboard.home.instantiateInitialViewController() else { return }
+                Router.shared.setRootViewcontroller(homeVC)
+            })
+        }else{
+            if let msg = self.form.validate().first?.msg {
+                self.show(title: "Error", message: msg)
             }
-            //HomeSegue
-            self?.performSegue(withIdentifier: "HomeSegue", sender: nil)
-        })
+        }
     }
 }
 
@@ -100,6 +125,7 @@ extension AlertRepresentable where Self: UIViewController {
 }
 
 extension UIViewController: AlertRepresentable {}
+
 extension Form {
     public func unwrappedValues(_ includeHidden: Bool = true) -> [String: Any]{
         let wrapped = self.values(includeHidden: includeHidden)
@@ -111,4 +137,24 @@ extension Form {
         }
         
         return unwrapped
-    }}
+    }
+    
+    var isValid: Bool {
+        rows.forEach { (row) in
+            if let editableRow = row as? Editable {
+                editableRow.endEditing()
+            }
+        }
+        return validate().isEmpty
+    }
+}
+
+protocol Editable {
+    func endEditing()
+}
+
+extension FDTextRow: Editable {
+    func endEditing() {
+        cell.textField.resignFirstResponder()
+    }
+}

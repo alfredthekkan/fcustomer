@@ -13,11 +13,90 @@ import KRProgressHUD
 import PromiseKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Eureka
 
+class LoginViewController: FormViewController {
+    
+    //MARK: - View lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupForm()
+        setupdummy()
+    }
+    private func setupdummy() {
+        form.rowBy(tag: "username")?.baseValue = ProcessInfo.processInfo.environment["username"]
+        form.rowBy(tag: "password")?.baseValue = ProcessInfo.processInfo.environment["password"]
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    private func setupForm() {
+        form +++ Section()
+            <<< FDTextRow("username") {
+                $0.title = I18n.t("Email")
+                $0.add(rule: RuleRequired())
+        }
+            <<< FDTextRow("password") {
+                $0.title = I18n.t("Password")
+                $0.type = .secure
+                $0.add(rule: RuleRequired())
+        }
+            <<< FDButtonRow() {
+                $0.value = I18n.t("Login")
+                $0.action = { self.login() }
+        }
+        
+            <<< FDButtonRow() {
+                $0.value = I18n.t("Register")
+                $0.action = { self.register() }
+        }
+    }
+    
+    func login() {
+        guard form.isValid else { return }
+        KRProgressHUD.show()
+        let username = form.rowBy(tag: "username")?.baseValue as! String
+        let password = form.rowBy(tag: "password")?.baseValue as! String
+        User.login(username, password).response(completionHandler : {[weak self] response in
+            KRProgressHUD.dismiss()
+            if let error = response.error {
+                self?.show(error: error)
+                return
+            }
+            self?.goHome()
+        })
+
+    }
+    
+    private func goHome() {
+        guard let homeVc = UIStoryboard.home.instantiateInitialViewController() else { return }
+        present(homeVc, animated: true, completion: {
+            Router.shared.setRootViewcontroller(homeVc)
+        })
+    }
+    
+    func register() {
+        guard let viewcontroller = storyboard?.instantiateViewController(withIdentifier: RegisterViewController.identifier) else { return }
+        let navigationcontroller = FDNavigationController(rootViewController: viewcontroller)
+        present(navigationcontroller, animated: true, completion: nil)
+    }
+    @IBAction func forgotTapped(_ sender: Any) {
+        guard let viewcontroller = storyboard?.instantiateViewController(withIdentifier: ForgotPasswordViewController.identifier) else { return }
+        let navigationcontroller = FDNavigationController(rootViewController: viewcontroller)
+        present(navigationcontroller, animated: true, completion: nil)
+    }
+    
+    func fbLogin() {
+        
+    }
+}
+
+
+
+/*
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var btnLogin:UIButton!
-    @IBOutlet weak var btnForgot:UIButton!
     @IBOutlet weak var btnRegister:UIButton!
     @IBOutlet weak var txtUsername:UITextField!
     @IBOutlet weak var txtPassword:UITextField!
@@ -35,12 +114,12 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         customizeUI()
         addLoginButton()
-        fbFlow()
     }
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
+        
+       }
     func keyboardWillShow(_ notification:Notification){
         var offset:CGFloat = 0
         if txtPassword.isFirstResponder {
@@ -70,7 +149,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         if !isValid() { return }
         let username = txtUsername.text!
         let password = txtPassword.text!
-        
         KRProgressHUD.show()
         User.login(username, password).response(completionHandler : {[weak self] response in
             KRProgressHUD.dismiss()
@@ -78,9 +156,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 self?.show(error: error)
                 return
             }
-            User.isAuthorized = true
-            let x = self?.storyboard?.instantiateViewController(withIdentifier: "HomeVC")
-            self?.present(x!, animated: true, completion: nil)
+            self?.goHome()
         })
     }
     func isValid() -> Bool {
@@ -89,8 +165,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     func goHome() {
-        let x = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC")
-        view.window?.rootViewController = x
+        let homeVc = UIStoryboard.home.instantiateInitialViewController()
+        present(homeVc!, animated: true, completion: {
+            Router.shared.setRootViewcontroller(homeVc!)
+        })
     }
     
     // MARK: Text Field Delegate
@@ -169,10 +247,15 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 extension LoginViewController: FBSDKLoginButtonDelegate {
     
     public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        
+        KRProgressHUD.show()
+        User.current.logout().response(completionHandler: { response in
+            KRProgressHUD.dismiss()
+            Session.delete()
+        })
     }
 
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        fbFlow()
         if error != nil {
             fbPromise.reject(error)
         }
@@ -192,17 +275,14 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                     self.fbPromise.reject(error!)
                 }
             })
-            
-            //fbPromise.fulfill(result.token.tokenString)
         }else {
             fbPromise.reject(FBLoginError.loginError)
         }
-        
-        
-        
     }
 }
 
 enum FBLoginError: Error {
     case loginError
 }
+ 
+ */

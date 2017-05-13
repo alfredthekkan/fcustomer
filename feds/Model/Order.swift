@@ -56,9 +56,17 @@ final class Order {
     var service         :Service.ServiceType = .invalid
     var payment         :Payment?
     var distance        :Double! = 0
+    var driver          :Driver?
+    var orderStatus     :OrderStatus?
     
     required init?(map: Map) {}
     init() {}
+    
+    enum OrderStatus: String {
+        case pending = "pending"
+        case assigned = "assigned"
+        case ongoing = "ongoing"
+    }
 }
 
 extension Order: Mappable {
@@ -74,6 +82,8 @@ extension Order: Mappable {
         service         <- map["product_name"]
         distance        <- map["distance"]
         _addresses      <- map["addresslist"]
+        driver = Driver(map: map)
+        orderStatus <- map["status_name"]
     }
 }
 

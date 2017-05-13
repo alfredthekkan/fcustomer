@@ -21,7 +21,10 @@ class LocationTableViewCell: Cell<String>, CellType {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+    override func setup() {
+        super.setup()
+        selectionStyle = .none
+    }
     override func update() {
         super.update()
         let row = self.row as? LocationTitleRow

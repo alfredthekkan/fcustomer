@@ -20,10 +20,13 @@ class CourierListViewController: UIViewController {
     // View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "MY COURIERS"
         getOrders()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "MY COURIERS"
+    }
     private func getOrders() {
         KRProgressHUD.show()
         Order.fetch(completionHandler: {[weak self] orders, error in

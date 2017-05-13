@@ -9,12 +9,15 @@
 import UIKit
 import Eureka
 import Alamofire
+import KRProgressHUD
+
 class ForgotPasswordViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Forgot Password"
         setupForm()
+        navigationItem.rightBarButtonItem = self.cancelButton()
         // Do any additional setup after loading the view.
     }
     
@@ -24,6 +27,8 @@ class ForgotPasswordViewController: FormViewController {
         <<< FDTextRow("email") {
                 $0.title = "Email"
                 $0.placeHolder = "john.smith@gmail.com"
+            $0.add(rule: RuleEmail())
+                $0.add(rule: RuleRequired())
         }
         <<< FDButtonRow () {
                 $0.value = "Send Email"
@@ -33,13 +38,21 @@ class ForgotPasswordViewController: FormViewController {
     
     //MARK: User Interaction
     private func next() {
-        let input = form.unwrappedValues()
-        User.forgotPassword(input).response { (response) in
-            if let error = response.error {
-                self.show(error: error)
-                return
+        if form.isValid {
+            let input = form.unwrappedValues()
+            KRProgressHUD.show()
+            User.forgotPassword(input).response { (response) in
+                KRProgressHUD.dismiss()
+                if let error = response.error {
+                    self.show(error: error)
+                    return
+                }
+                self.show(title: "FEDS", message: "A recovery link has been sent to your email.")
             }
-            self.show(title: "FEDS", message: "A recovery link has been sent to your email.")
+        }else {
+            if let msg = self.form.validate().first?.msg {
+                self.show(title: "Error", message: msg)
+            }
         }
     }
 }
